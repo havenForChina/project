@@ -1,0 +1,125 @@
+/******reset******/
+html, body, div, span, applet, object, iframe, h1, h2, h3,
+h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address,
+big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  font-weight: inherit;
+  font-style: inherit;
+  font-size: 100%;
+  font-family: inherit;
+  vertical-align: baseline;
+}
+body{
+  font-family: "Helvetica Neue", Helvetica, 微软雅黑, "Microsoft YaHei", Arial, sans-serif;
+  background: #f2f4f8;
+}
+:focus {
+  outline: 0;
+}
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+}
+a img, iframe {
+  border: none;
+}
+ol, ul {
+  list-style: none;
+}
+input, textarea, select, button {
+  font-size: 100%;
+  font-family: inherit;
+}
+select {
+  margin: inherit;
+}
+/* Fixes incorrect placement of numbers in ol’s in IE6/7 */
+ol { margin-left:2em; }
+/* == clearfix == */
+.clearfix:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix {display: block;}
+.fl{
+  float: left;
+}
+.fr {
+  float: right;
+}
+html,body,#app,.app-main,.app-leftBar {
+  /*height: 100%;*/
+}
+.fade {
+  -webkit-transition: all ease-in-out 0.15s;
+  -o-transition: all ease-in-out 0.15s;
+  -ms-transition: all ease-in-out 0.15s;
+  -moz-transition: all ease-in-out 0.15s;
+  transition: all ease-in-out 0.15s;
+}
+.hide{
+  display: none;
+}
+.show{
+  display: block;
+}
+.slideUp{
+  height: 0px;
+  overflow: hidden;
+}
+.slideDown{
+  height: auto;
+}
+.app-header {
+  height: 20px;
+  background-color: rgb(70, 195, 193);
+  background-image: url(../src/assets/logo.png);
+  background-position: 18px center;
+  background-repeat: no-repeat;
+  background-size: auto 60%;
+  padding: 7px 18px;
+  line-height: 20px;
+}
+.app-title {
+  font-size: 16px;
+  color: #fff;
+  font-weight: 700;
+  padding-left: 26px;
+}
+.app-account {
+  font-size: 14px;
+  color: #fff;
+  cursor: pointer;
+}
+.app-account *{
+  display: inline-block;
+
+}
+.app-leftBar {
+  width:170px;
+  height:100vh;
+  position: fixed;
+  left: 0;
+  top:54px;
+  background: #464c59;
+}
+
+.app-main {
+  position: relative;
+  margin: 20px 0 0 170px;
+}

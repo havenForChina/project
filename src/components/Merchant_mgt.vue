@@ -1,0 +1,25 @@
+<template>
+  <div class="hello">
+    <h1>{{ msg }}</h1>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'hello',
+  data () {
+    return {
+      msg: '这是一个未完成的用户管理模块'
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+  div {
+    width: 100%;
+    height: 100px;
+    background-color: red;
+  }
+</style>
