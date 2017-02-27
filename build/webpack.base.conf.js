@@ -60,11 +60,5 @@ module.exports = {
         }
       }
     ]
-  },
-  vue: {
-    loaders: {
-      js: 'babel-loader?presets[]=es2015&plugins[]=transform-runtime&comments=false',
-      css:ExtractTextPlugin.extract(['css-loader'])
-    }
   }
 }

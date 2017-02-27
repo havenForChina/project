@@ -11,7 +11,14 @@
       <leftBar></leftBar>
     </div>
     <div class="app-main">
-      <router-view></router-view>
+      <el-breadcrumb separator="/" class="app-breadcrumb">
+        <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+        <el-breadcrumb-item :to="{ path: $route.path}">{{$route.name}}</el-breadcrumb-item>
+      </el-breadcrumb>
+      <div class="app-box">
+        <router-view></router-view>
+      </div>
+
     </div>
   </div>
 </template>

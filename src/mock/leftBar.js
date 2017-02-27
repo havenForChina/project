@@ -3,6 +3,7 @@ module.exports = [
     "name":"订单",
     "path":"/Order",
     "active":true,
+    "icon":"icon-dingdan",
     "item":[
       {
         "name":"订单管理",
@@ -15,6 +16,7 @@ module.exports = [
     "name":"商户",
     "path":"/Merchant",
     "active":true,
+    "icon":"icon-shanghuzhongxin",
     "item":[
       {
         "name":"供应商管理",
@@ -32,6 +34,7 @@ module.exports = [
     "name":"HES系统",
     "path":"/HES",
     "active":true,
+    "icon":"icon-feiji",
     "item":[
       {
         "name":"拜访管理",
@@ -49,6 +52,7 @@ module.exports = [
     "name":"审核",
     "path":"/Review",
     "active":true,
+    "icon":"icon-shenhe",
     "item":[
       {
         "name":"申请审核",
@@ -66,6 +70,7 @@ module.exports = [
     "name":"产品",
     "path":"/Product",
     "active":true,
+    "icon":"icon-chanpin",
     "item":[
       {
         "name":"公告管理",

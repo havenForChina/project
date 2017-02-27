@@ -62,6 +62,9 @@ ol { margin-left:2em; }
 .fr {
   float: right;
 }
+.fn {
+  float: none;
+}
 html,body,#app,.app-main,.app-leftBar {
   /*height: 100%;*/
 }
@@ -88,7 +91,7 @@ html,body,#app,.app-main,.app-leftBar {
 .app-header {
   height: 20px;
   background-color: rgb(70, 195, 193);
-  background-image: url(../src/assets/logo.png);
+  background-image: url(../../src/assets/logo.png);
   background-position: 18px center;
   background-repeat: no-repeat;
   background-size: auto 60%;
@@ -116,10 +119,37 @@ html,body,#app,.app-main,.app-leftBar {
   position: fixed;
   left: 0;
   top:54px;
-  background: #464c59;
+  background: #324157;
 }
-
 .app-main {
   position: relative;
   margin: 20px 0 0 170px;
+  padding: 15px 20px 0;
+}
+.app-box{
+  background: #fff;
+  border: 1px solid #dde3ea;
+  border-radius: 2px;
+  padding-top: 30px;
+  overflow: hidden;
+}
+.app-breadcrumb {
+  font-size: 14px;
+  color: #000;
+  margin-bottom: 10px;
+}
+.app-breadcrumb .el-breadcrumb__item__inner {
+  color: #428bca;
+}
+.app-breadcrumb .el-breadcrumb__item:last-child .el-breadcrumb__item__inner{
+  color: #333;
+}
+.app-input-list .el-form-item__label,.app-input-list .list-label {
+  width: 110px;
+}
+.app-input-list .el-select{
+  width:167px;
+}
+.order-dialog {
+  width: 650px;
 }
