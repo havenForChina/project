@@ -41,7 +41,7 @@
       },
       createFilter(queryString) {
         return (restaurant) => {
-          return (restaurant.value.indexOf(queryString.toLowerCase()) === 0);
+          return (restaurant.value.indexOf(queryString.toLowerCase()) !== -1);
         }
       },
       loadAll() {

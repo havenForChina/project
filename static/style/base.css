@@ -65,6 +65,9 @@ ol { margin-left:2em; }
 .fn {
   float: none;
 }
+.pt-30 {
+  padding-top: 30px;
+}
 html,body,#app,.app-main,.app-leftBar {
   /*height: 100%;*/
 }
@@ -191,11 +194,12 @@ html,body,#app,.app-main,.app-leftBar {
   padding: 15px 20px 0;
 }
 .app-box{
+  overflow: hidden;
+}
+.back-box {
   background: #fff;
   border: 1px solid #dde3ea;
   border-radius: 2px;
-  padding-top: 30px;
-  overflow: hidden;
 }
 .app-breadcrumb {
   font-size: 14px;
