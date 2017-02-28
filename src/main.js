@@ -9,11 +9,13 @@ import '../static/iconfont/iconfont.css'
 import '../static/style/base.css'
 import leftBar from 'mock/leftBar'
 import order from 'mock/order'
+import merchant from 'mock/merchant'
 Vue.use(ElementUI)
 Vue.use(Vuex)
 let mock = {
   leftBar:leftBar,
-  order:order
+  order:order,
+  merchant:merchant
 }
 const store = new Vuex.Store({
   state:mock,

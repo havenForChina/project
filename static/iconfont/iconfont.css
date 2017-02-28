@@ -22,45 +22,45 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
-
+/*工具*/
 .icon-gongju:before { content: "\e616"; }
-
+/*统计*/
 .icon-statistics:before { content: "\e645"; }
-
+/*品牌标识*/
 .icon-pinpaibiaoshi:before { content: "\e740"; }
-
+/*合同*/
 .icon-hetong:before { content: "\e60f"; }
-
+/*购物车*/
 .icon-gouwuche:before { content: "\e856"; }
-
+/*订单*/
 .icon-dingdan:before { content: "\e622"; }
-
+/*学院*/
 .icon-xueyuan:before { content: "\e663"; }
-
+/*推广*/
 .icon-tuiguang:before { content: "\e64e"; }
-
+/*物料*/
 .icon-wuliao:before { content: "\e850"; }
-
+/*结算*/
 .icon-jiesuan:before { content: "\e619"; }
-
+/*营销*/
 .icon-yingxiao:before { content: "\e6d2"; }
-
+/*飞机*/
 .icon-feiji:before { content: "\e601"; }
-
+/*智能*/
 .icon-zhineng:before { content: "\e610"; }
-
+/*产品*/
 .icon-chanpin:before { content: "\e684"; }
-
+/*循环*/
 .icon-xunhuan:before { content: "\e67e"; }
-
+/*审核*/
 .icon-shenhe:before { content: "\e651"; }
-
+/*眼睛*/
 .icon-yanjing:before { content: "\e656"; }
-
+/*质量*/
 .icon-zhiliang:before { content: "\e602"; }
-
+/*商户中心*/
 .icon-shanghuzhongxin:before { content: "\e63a"; }
-
+/*主页*/
 .icon-zhuye:before { content: "\e701"; }
 
 .icon-Fill:before { content: "\e603"; }

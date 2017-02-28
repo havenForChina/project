@@ -65,8 +65,15 @@ ol { margin-left:2em; }
 .fn {
   float: none;
 }
+
 .pt-30 {
   padding-top: 30px;
+}
+.mt-20 {
+  margin-top: 20px;
+}
+.mt-30 {
+  margin-top: 30px;
 }
 html,body,#app,.app-main,.app-leftBar {
   /*height: 100%;*/
@@ -118,11 +125,9 @@ html,body,#app,.app-main,.app-leftBar {
 }
 .app-leftBar {
   width:170px;
-  height:100vh;
   position: fixed;
   left: 0;
   top:44px;
-  background: #324157;
   z-index: 1000;
 }
 
@@ -193,14 +198,31 @@ html,body,#app,.app-main,.app-leftBar {
   margin: 20px 0 0 170px;
   padding: 15px 20px 0;
 }
-.app-box{
-  overflow: hidden;
-}
 .back-box {
   background: #fff;
   border: 1px solid #dde3ea;
   border-radius: 2px;
+  box-shadow: 0 2px 4px #ccc;
 }
+.list-label {
+  text-align: right;
+  vertical-align: middle;
+  display: inline-block;
+  font-size: 14px;
+  color: #48576a;
+  line-height: 1;
+  padding: 11px 12px 11px 0;
+  box-sizing: border-box;
+}
+.btn-more {
+  text-align: center;
+  cursor: pointer;
+  margin:0 0 20px;
+}
+.app-from-btn {
+  padding-left: 110px;
+}
+
 .app-breadcrumb {
   font-size: 14px;
   color: #000;
@@ -221,3 +243,5 @@ html,body,#app,.app-main,.app-leftBar {
 .order-dialog {
   width: 650px;
 }
+
+

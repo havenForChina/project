@@ -25,13 +25,13 @@
           <span style="display: inline-block;margin-bottom: 22px">
             <span class="list-label">下单时间</span>
             <el-date-picker
-                    :size="inputSize"
-                    v-model="value4"
-                    type="datetimerange"
-                    :picker-options="pickerOptions2"
-                    placeholder="选择时间范围"
-                    :editable="false"
-                    align="right">
+              :size="inputSize"
+              v-model="value4"
+              type="datetimerange"
+              :picker-options="pickerOptions2"
+              placeholder="选择时间范围"
+              :editable="false"
+              align="right">
             </el-date-picker>
           </span>
         </li>

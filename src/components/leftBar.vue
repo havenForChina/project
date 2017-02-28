@@ -12,14 +12,15 @@
         @select="handleSelect"
       ></el-autocomplete>
     </div>
-    <el-menu :default-active="defaultActive" :router="true" theme="dark" class="app-menu">
-      <el-menu-item index="/"><i class="iconfont icon-zhuye"></i>首页工作台</el-menu-item>
-      <el-submenu v-for="(els,index) in leftBar" :index="els.path">
-        <template slot="title"><i class="iconfont" :class="els.icon"></i>{{els.name}}</template>
+    <div class="menu-box">
+      <el-menu :default-active="defaultActive" :router="true" theme="dark" class="app-menu">
+        <el-menu-item index="/"><i class="iconfont icon-zhuye"></i>首页工作台</el-menu-item>
+        <el-submenu v-for="(els,index) in leftBar" :index="els.path">
+          <template slot="title"><i class="iconfont" :class="els.icon"></i>{{els.name}}</template>
           <el-menu-item v-for="(el,ind) in els.item" :index="el.path">{{el.name}}</el-menu-item>
-      </el-submenu>
-    </el-menu>
-
+        </el-submenu>
+      </el-menu>
+    </div>
   </div>
 </template>
 <script>
@@ -44,9 +45,6 @@
           return (restaurant.value.indexOf(queryString.toLowerCase()) !== -1);
         }
       },
-      loadAll() {
-        return this.searchData
-      },
       handleSelect(item) {
         this.$router.push(item.path)
       }
@@ -69,7 +67,12 @@
       }
     },
     mounted() {
-      this.restaurants = this.loadAll();
+      this.restaurants = this.searchData;
+      setTimeout(function () {
+        let lh = $('.app-leftBar').height()
+        let sh = $('.app-leftBar .search').outerHeight()
+        $('.app-leftBar .menu-box').css('height',lh-sh)
+      },10)
     },
     created(){
       this.leftBar = this.$store.state.leftBar
@@ -80,6 +83,9 @@
   .search{
     padding:4px;
   }
+  .app-menu {
+    width: 170px;
+  }
   .app-menu i {
     font-size: 18px;
     padding-right: 10px;
@@ -89,5 +95,13 @@
     background: #324157;
     position: relative;
     z-index:1;
+    border-top-right-radius: 6px;
+    box-shadow: 4px 4px 14px #ccc;
+    overflow: hidden;
+  }
+  .menu-box {
+    width: 182px;
+    padding-right: 4px;
+    overflow: auto;
   }
 </style>
