@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="left-box">
     <div class="search">
       <el-autocomplete
         icon="search"
@@ -19,6 +19,7 @@
           <el-menu-item v-for="(el,ind) in els.item" :index="el.path">{{el.name}}</el-menu-item>
       </el-submenu>
     </el-menu>
+
   </div>
 </template>
 <script>
@@ -83,5 +84,10 @@
     font-size: 18px;
     padding-right: 10px;
   }
-
+  .left-box {
+    height: 100%;
+    background: #324157;
+    position: relative;
+    z-index:1;
+  }
 </style>
