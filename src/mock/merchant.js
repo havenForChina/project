@@ -43,6 +43,25 @@ module.exports = {
         }
     },
     "operating":{
-        "disabled":true
-    }
+        "operateAll":[
+            {"label":"开业设置","type":"opened"},
+            {"label":"暂停营业","type":"stop"},
+            {"label":"批量获得","type":"batchAccess"},
+            {"label":"特批","type":"special"},
+            {"label":"批量打标签","type":"printLabel"},
+            {"label":"批量待上线","type":"waitOnline"},
+            {"label":"批量上线","type":"online"}
+        ]
+    },
+    "merchantList":[
+        {
+            "id":1,
+            "name":"肯德基宅急送(塘市店)"
+        },
+        {
+            "id":2,
+            "name":"必胜客披萨(塘市店)"
+        }
+    ],
+    "selectMerchant":[]
 }

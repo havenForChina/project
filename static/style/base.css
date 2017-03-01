@@ -65,7 +65,9 @@ ol { margin-left:2em; }
 .fn {
   float: none;
 }
-
+.pt-20 {
+  padding-top: 20px;
+}
 .pt-30 {
   padding-top: 30px;
 }
@@ -105,19 +107,25 @@ html,body,#app,.app-main,.app-leftBar {
   background-position: 18px center;
   background-repeat: no-repeat;
   background-size: auto 60%;
-  padding: 7px 18px;
+  padding: 7px 0;
   line-height: 20px;
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 100%;
+  z-index:100;
 }
 .app-title {
   font-size: 16px;
   color: #fff;
   font-weight: 700;
-  padding-left: 26px;
+  padding-left: 44px;
 }
 .app-account {
   font-size: 14px;
   color: #fff;
   cursor: pointer;
+  padding-right: 20px;
 }
 .app-account *{
   display: inline-block;
@@ -195,8 +203,14 @@ html,body,#app,.app-main,.app-leftBar {
 }
 .app-main {
   position: relative;
-  margin: 20px 0 0 170px;
+  margin: 40px 0 0 170px;
   padding: 15px 20px 0;
+}
+.app-foooter {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin: 30px 0 20px;
 }
 .back-box {
   background: #fff;
@@ -220,7 +234,7 @@ html,body,#app,.app-main,.app-leftBar {
   margin:0 0 20px;
 }
 .app-from-btn {
-  padding-left: 110px;
+  padding-left: 100px;
 }
 
 .app-breadcrumb {
@@ -235,7 +249,7 @@ html,body,#app,.app-main,.app-leftBar {
   color: #333;
 }
 .app-input-list .el-form-item__label,.app-input-list .list-label {
-  width: 110px;
+  width: 100px;
 }
 .app-input-list .el-select{
   width:167px;

@@ -23,6 +23,7 @@
       <div class="app-box">
         <router-view></router-view>
       </div>
+      <div class="app-foooter">©2017 聚兔外卖</div>
     </div>
     <el-dialog title="意见反馈" v-model="dialogVisible" custom-class="app-feedback-dialog">
       <div class="feedback-body">
@@ -84,10 +85,6 @@
     computed: {
     },
     mounted(){
-      let wh = $(window).height()
-      let alb = $('.app-leftBar')
-      let lt = alb.offset().top
-      alb.css('height',wh-lt)
     },
     data(){
       return {

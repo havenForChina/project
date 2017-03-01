@@ -58,22 +58,23 @@
       <el-button>导出进度查询</el-button>
     </div>
     <div class="operating back-box clearfix mt-20">
-      <input type="checkbox" id="selectAll"><label for="selectAll">全选</label>
+      <input type="checkbox" id="selectAll" v-model="mSelectAll" @click="msa">
+      <label for="selectAll">全选</label>
       <i>( 已选 <span> 0</span>家 )</i>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">开业设置</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">暂停营业</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">批量获得</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">特批</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">批量打标签</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">批量待上线</el-button>
-      <el-button :plain="true"  :disabled="merchantData.operating.disabled" size="small">批量上线</el-button>
+      <el-button
+        :plain="true"
+        :disabled="noClick"
+        size="small"
+        v-for="el in merchantData.operating.operateAll" @click="operate(el.type)">
+        {{el.label}}
+      </el-button>
       <el-button :plain="true" size="small" :class="'fr'">商户等级与积分规则</el-button>
     </div>
-    <ul class="merchant-list back-box mt-20">
-      <li>
+    <ul class="merchant-list ">
+      <li class="back-box mt-20" v-for="el in merchantData.merchantList">
         <div class="list-title clearfix">
-          <input type="checkbox">
-          <a href="#">肯德基宅急送(塘市店)</a>
+          <input type="checkbox" :value="el.id" v-model="merchantData.selectMerchant" @change="mSelect">
+          <a href="#">{{el.name}}</a>
           <ul class="list-edit clearfix fr">
             <li>拜访记录</li>|
             <li>活动设置</li>|
@@ -85,8 +86,35 @@
             <li>结算信息</li>
           </ul>
         </div>
-        <div class="list-body">
-          
+        <div class="list-body clearfix pt-20">
+          <div class="list-detailed fl">
+            <el-button type="primary">详细</el-button>
+          </div>
+          <ul class="list-info clearfix">
+            <li>
+              <p>商户状态: 新增商户待上线</p>
+              <p>营业状态: 暂停营业</p>
+              <p>配送方: 自配送</p>
+              <p>等级: 没有等级</p>
+            </li>
+            <li>
+              <p>入主渠道: 平台创建</p>
+              <p>合作方: 肯德基(苏州)</p>
+              <p>商户ID: 12345678908</p>
+              <p>创建时间: 2017-01-23 13：50：01</p>
+            </li>
+            <li>
+              <p>标签: 暂无</p>
+              <p>城市: 苏州</p>
+              <p>合同状态: 有效</p>
+              <p>积分(详情): 0</p>
+            </li>
+            <li>
+              <p>商圈: 待定</p>
+              <p>管理者: 苏州代理商</p>
+              <p>近90天好评率：: 0</p>
+            </li>
+          </ul>
         </div>
       </li>
     </ul>
@@ -106,16 +134,40 @@ export default {
     },
     onSubmit(){
 
+    },
+    operate(type){
+      console.log(type)
+    },
+    mSelect(){
+      this.mSelectAll = this.merchantData.selectMerchant.length == this.merchantData.merchantList.length? true : false
+    },
+    msa(){
+      let _this = this
+      if(this.mSelectAll){
+        this.merchantData.selectMerchant =[]
+        this.merchantData.merchantList.forEach(function (el) {
+          _this.merchantData.selectMerchant.push(el.id)
+        })
+      }else {
+        this.merchantData.selectMerchant =[]
+      }
     }
+  },
+  computed:{
+      noClick(){
+        return this.merchantData.selectMerchant.length === 0 ? true : false
+      }
   },
   data () {
     return {
       merchantData:{},
-      inputSize:"small"
+      inputSize:"small",
+      mSelectAll:false
     }
   },
   created(){
     this.merchantData = this.$store.state.merchant
+    this.mSelectAll = this.merchantData.selectMerchant.length == this.merchantData.merchantList.length? true : false
   }
 }
 </script>
@@ -133,8 +185,8 @@ export default {
   .operating i span {
     color: red;
   }
-  .merchant-list {
-    padding: 13px 15px;
+  .merchant-list>li{
+    padding: 13px 15px 20px;
     font-size: 14px;
   }
   .list-title {
@@ -147,5 +199,24 @@ export default {
   .list-edit li{
     display: inline-block;
     margin: 0 6px;
+  }
+  .list-body {
+    position: relative;
+  }
+  .list-detailed {
+    position: absolute;
+    width: 15%;
+    text-align: center  ;
+    top:50%;
+    transform: translateY(-50%);
+  }
+  .list-info{
+    width: 85% ;
+    margin-left: 15%;
+  }
+  .list-info li {
+    line-height: 40px;
+    margin-right: 80px;
+    float: left;
   }
 </style>

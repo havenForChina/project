@@ -68,6 +68,10 @@
     },
     mounted() {
       this.restaurants = this.searchData;
+      let wh = $(window).height()
+      let alb = $('.app-leftBar')
+      let lt = alb[0].offsetTop
+      alb.css('height',wh-lt)
       setTimeout(function () {
         let lh = $('.app-leftBar').height()
         let sh = $('.app-leftBar .search').outerHeight()

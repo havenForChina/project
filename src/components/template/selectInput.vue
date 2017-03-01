@@ -81,7 +81,7 @@ export default {
         z-index:1;
     }
     .selectInput .label {
-        width: 110px;
+        width: 100px;
         text-align: right;
         vertical-align: middle;
         float: left;
