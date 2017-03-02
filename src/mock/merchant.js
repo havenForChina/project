@@ -63,5 +63,30 @@ module.exports = {
             "name":"必胜客披萨(塘市店)"
         }
     ],
-    "selectMerchant":[]
+    "selectMerchant":[],
+    "detailed":{
+        "Agents":"苏州食到家信息技术有限公司",
+        "name":"",
+        "SalesManager":"hetaiyao",
+        "DistrictManager":"何太垚 (15995730710)",
+        "OwnBrand":"",
+        "categoryValue":'',
+        "MerchantLabel":{
+            "options":[
+                {"label":"无","value":1},
+                {"label":"本地KA","value":2}
+            ],
+            "value":1
+        },
+        "category":[
+            {"label":"餐饮","value":1},
+            {"label":"商超","value":2},
+            {"label":"鲜花","value":3},
+            {"label":"生活服务","value":4},
+            {"label":"水果生鲜","value":5},
+            {"label":"药店","value":6},
+            {"label":"早餐","value":7},
+            {"label":"商户商城","value":8}
+        ]
+    }
 }

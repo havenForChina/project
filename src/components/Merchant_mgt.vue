@@ -60,7 +60,7 @@
     <div class="operating back-box clearfix mt-20">
       <input type="checkbox" id="selectAll" v-model="mSelectAll" @click="msa">
       <label for="selectAll">全选</label>
-      <i>( 已选 <span> 0</span>家 )</i>
+      <i>( 已选 <span>{{merchantData.selectMerchant.length}}</span>家 )</i>
       <el-button
         :plain="true"
         :disabled="noClick"
@@ -88,7 +88,7 @@
         </div>
         <div class="list-body clearfix pt-20">
           <div class="list-detailed fl">
-            <el-button type="primary">详细</el-button>
+            <el-button type="primary" @click="pageShow = true">详细</el-button>
           </div>
           <ul class="list-info clearfix">
             <li>
@@ -118,15 +118,28 @@
         </div>
       </li>
     </ul>
+    <div class="app-dropdown-page fade" :class="pageShow && 'top0'">
+      <div class="app-dropdown-box">
+        <div class="app-dropdown-body back-box">
+          <div class="app-dropdown-title">
+            <h2>大叔的丝袜奶茶铺（老街店) - 商户详情</h2>
+            <i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>
+          </div>
+          <tmp is="detailed" :data="merchantData.detailed"></tmp>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
   import selectInput from './template/selectInput.vue'
+  import detailed from './Merchant_detailed/Merchant_detailed.vue'
 export default {
   name: 'merchant',
   components:{
-    selectInput
+    selectInput,
+    detailed
   },
   methods:{
     openMore(){
@@ -162,7 +175,17 @@ export default {
     return {
       merchantData:{},
       inputSize:"small",
-      mSelectAll:false
+      mSelectAll:false,
+      pageShow:true
+    }
+  },
+  watch:{
+    pageShow(n,o){
+      if(n){
+        $('body').css('overflow','hidden')
+      }else {
+        $('body').css('overflow','auto')
+      }
     }
   },
   created(){
@@ -218,5 +241,31 @@ export default {
     line-height: 40px;
     margin-right: 80px;
     float: left;
+  }
+  .app-dropdown-page{
+    width:100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top:-1000px;
+    z-index: 10;
+  }
+  .app-dropdown-page .app-dropdown-box {
+    position: relative;
+    padding: 44px 20px 0 189px;
+  }
+  .app-dropdown-title{
+    font-size: 14px;
+    padding: 20px;
+    position: relative;
+  }
+  .app-dropdown-close {
+    position: absolute;
+    right: 20px;
+    top: 23px;
+    cursor: pointer;
+  }
+  .top0 {
+    top:0
   }
 </style>
