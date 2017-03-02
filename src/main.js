@@ -10,12 +10,14 @@ import '../static/style/base.css'
 import leftBar from 'mock/leftBar'
 import order from 'mock/order'
 import merchant from 'mock/merchant'
+import activity from 'mock/activity'
 Vue.use(ElementUI)
 Vue.use(Vuex)
 let mock = {
   leftBar:leftBar,
   order:order,
-  merchant:merchant
+  merchant:merchant,
+  activity:activity
 }
 const store = new Vuex.Store({
   state:mock,
@@ -29,6 +31,9 @@ const store = new Vuex.Store({
     changeOrderData(state,data){
       state.order = data
     },
+    changeActivityrData(state,data){
+      state.activity = data
+      },
     openDialog(state){
       state.dialogVisible = true
     }

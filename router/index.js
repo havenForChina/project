@@ -4,6 +4,7 @@ import index from '../src/components/index.vue'
 import order from '../src/components/order.vue'
 import Supplier from '../src/components/Supplier.vue'
 import Mer_mgt from '../src/components/Merchant_mgt.vue'
+import activity from '../src/components/activity.vue'
 
 Vue.use(Router)
 const Error = {template: '<p style="color: red">is Error!!</p>'}
@@ -24,6 +25,11 @@ export default new Router({
       name: '商户管理',
       component: Mer_mgt
     },
+    {
+      path: '/activity',
+      name: '活动管理',
+      component: activity
+      },
     {
       path: '*',
       name:'首页',

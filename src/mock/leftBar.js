@@ -105,7 +105,7 @@ module.exports = [
     "item":[
       {
         "name":"活动管理",
-        "path":"/",
+        "path":"/activity",
         "active":false
       },
       {
