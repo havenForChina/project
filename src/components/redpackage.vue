@@ -4,7 +4,7 @@
     <el-form :inline="true" :model="redpackageData" class="demo-form-inline">
       <ul class="app-input-list clearfix">
         <li>
-          <el-form-item label="红包名称">
+          <el-form-item label="红包名称1">
             <el-input v-model="redpackageData.RedName" placeholder="红包名称" :size="inputSize"></el-input>
           </el-form-item>
           <el-form-item label="红包类型">
