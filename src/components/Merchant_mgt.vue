@@ -5,10 +5,10 @@
         <ul class="app-input-list clearfix">
           <li>
             <el-form-item label="商户ID">
-              <el-input v-model="merchantData.searchData.id" placeholder="商户ID" :size="inputSize"></el-input>
+              <el-input v-model="merchantData.searchData.id" placeholder="商户ID" :size="inputSize" style="width: 160px"></el-input>
             </el-form-item>
             <el-form-item label="商户名称">
-              <el-input v-model="merchantData.searchData.name" placeholder="商户名称" :size="inputSize"></el-input>
+              <el-input v-model="merchantData.searchData.name" placeholder="商户名称" :size="inputSize" style="width: 160px"></el-input>
             </el-form-item>
             <selectInput
               :data="merchantData.searchData.userStatus"
@@ -16,27 +16,27 @@
               size="small">
             </selectInput>
             <el-form-item label="营业状态">
-              <el-select v-model="merchantData.searchData.businessStatus.value" placeholder="营业状态" :size="inputSize">
+              <el-select v-model="merchantData.searchData.businessStatus.value" placeholder="营业状态" :size="inputSize" style="width: 160px">
                 <el-option v-for="el in merchantData.searchData.businessStatus.options"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>
           </li>
           <li>
             <el-form-item label="城市">
-              <el-input v-model="merchantData.searchData.city" placeholder="商户ID" :size="inputSize"></el-input>
+              <el-input v-model="merchantData.searchData.city" placeholder="商户ID" :size="inputSize" style="width: 160px"></el-input>
             </el-form-item>
             <el-form-item label="商户类型">
-              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize">
+              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize" style="width: 160px">
                 <el-option v-for="el in merchantData.searchData.merchantType.options"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="商户类型">
-              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize">
+              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize" style="width: 160px">
                 <el-option v-for="el in merchantData.searchData.merchantType.options"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>
             <el-form-item label="商户类型">
-              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize">
+              <el-select v-model="merchantData.searchData.merchantType.value" placeholder="营业状态" :size="inputSize" style="width: 160px">
                 <el-option v-for="el in merchantData.searchData.merchantType.options"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>
