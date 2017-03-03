@@ -125,7 +125,7 @@
             <h2>大叔的丝袜奶茶铺（老街店) - 商户详情</h2>
             <i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>
           </div>
-          <tmp is="detailed" :data="merchantData.detailed"></tmp>
+          <tmp is="detailed" :data="merchantData"></tmp>
         </div>
       </div>
     </div>

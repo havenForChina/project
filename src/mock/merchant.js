@@ -88,5 +88,8 @@ module.exports = {
             {"label":"早餐","value":7},
             {"label":"商户商城","value":8}
         ]
+    },
+    "takeaway":{
+        
     }
 }

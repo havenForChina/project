@@ -3,19 +3,19 @@
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             <el-tab-pane label="商户详情" name="1">
                 <div class="tab-box">
-                    <el-form label-width="130px" :model="data" :rules="rules" ref="data">
+                    <el-form label-width="130px" :model="data.detailed" :rules="rules" ref="data">
                         <dl class="detailed-box">
                             <dt>
                                 基本信息
                             </dt>
-                            <dd class="text"><label>代理商</label> <span>{{data.Agents}}</span></dd>
+                            <dd class="text"><label>代理商</label> <span>{{data.detailed.Agents}}</span></dd>
                             <dd class="required">
                                 <el-form-item label="商户名称" prop="name">
-                                    <el-input :size="inputSize" v-model="data.name" placeholder="连锁店标注为“品牌(分店名)形式"></el-input>
+                                    <el-input :size="inputSize" v-model="data.detailed.name" placeholder="连锁店标注为“品牌(分店名)形式"></el-input>
                                 </el-form-item>
                             </dd>
-                            <dd><label>销售经理</label> <span>{{data.SalesManager}}</span></dd>
-                            <dd><label>商圈经理</label> <span>{{data.DistrictManager}}</span></dd>
+                            <dd><label>销售经理</label> <span>{{data.detailed.SalesManager}}</span></dd>
+                            <dd><label>商圈经理</label> <span>{{data.detailed.DistrictManager}}</span></dd>
                             <dd>
                                 <el-form-item label="所属品牌">
                                     <el-input :size="inputSize" v-model="data.OwnBrand"></el-input>
@@ -23,9 +23,9 @@
                             </dd>
                             <dd>
                                 <el-form-item label="商户标签">
-                                    <el-select v-model="data.MerchantLabel.value" placeholder="请选择活动区域" :size="inputSize">
+                                    <el-select v-model="data.detailed.MerchantLabel.value" placeholder="请选择活动区域" :size="inputSize">
                                         <el-option
-                                                v-for="el in data.MerchantLabel.options"
+                                                v-for="el in data.detailed.MerchantLabel.options"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -34,9 +34,9 @@
                             </dd>
                             <dd>
                                 <el-form-item label="商户品类" prop="categoryValue">
-                                    <el-select v-model="data.categoryValue" placeholder="请选择" :size="inputSize">
+                                    <el-select v-model="data.detailed.categoryValue" placeholder="请选择" :size="inputSize">
                                         <el-option
-                                                v-for="el in data.category"
+                                                v-for="el in data.detailed.category"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -162,10 +162,10 @@
         },
         computed:{
             btnPrompt(){
-                return this.data.categoryValue == '' ? '请先选择品类' : '请选择'
+                return this.data.detailed.categoryValue == '' ? '请先选择品类' : '请选择'
             },
             btnDisable(){
-                return this.data.categoryValue == '' ? true : false
+                return this.data.detailed.categoryValue == '' ? true : false
             }
         },
         methods: {
