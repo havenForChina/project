@@ -3,7 +3,7 @@
         <el-form label-width="130px" :model="MerchantAccount" :rules="rules" ref="data">
             <dl class="detailed-box">
                 <dt>
-                    基本信息
+                   账号信息
                 </dt>
                 <dd><label class="is-label">商户账号</label> <span>{{MerchantAccount.M_account}}</span></dd>
                 <dd class="required">
