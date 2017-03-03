@@ -10,36 +10,36 @@
   <el-button type="primary">创建直领新用户代金券</el-button>             
             </dl>           
         </el-form>   
-       <div class="back-box mt-30">
+       <div class="common-widget-common-filter-wrap ">
     		 <el-form :inline="true" :model="Independent" class="demo-form-inline"> 
-    		 	<div class="mt-20 fl">
+    		 	<div class="mt-20 ml-20 fl">
     	 <el-form-item label="活动类型">
-              <el-select v-model="Independent.value" placeholder="活动类型" :size="inputSize">
+              <el-select v-model="Independent.value" placeholder="活动类型" :size="inputSize" style="width: 175px">
                 <el-option v-for="el in Independent.options"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>        
           </div>
-          <div class="mt-20 fl">
+          <div class="mt-20 ml-20 fl">
     	 <el-form-item label="活动状态">
-              <el-select v-model="Independent.value" placeholder="活动状态" :size="inputSize">
+              <el-select v-model="Independent.value" placeholder="活动状态" :size="inputSize" style="width: 175px">
                 <el-option v-for="el in Independent.options_status"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>        
           </div>
-          <div class="mt-20 fl">
+          <div class="mt-20 ml-20 fl">
     	 <el-form-item label="城市">
-              <el-select v-model="Independent.value" placeholder="城市" :size="inputSize">
+              <el-select v-model="Independent.value" placeholder="城市" :size="inputSize" style="width: 175px">
                 <el-option v-for="el in Independent.options_city"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>        
           </div>
-          <div class="mt-20 fl">
+          <div class="mt-20 ml-20 fl">
     	 <el-form-item label="门店">
-              <el-select v-model="Independent.value" placeholder="门店" :size="inputSize">
+              <el-select v-model="Independent.value" placeholder="门店" :size="inputSize" style="width: 175px">
                 <el-option v-for="el in Independent.options_shop"  :label="el.label" :value="el.value" ></el-option>
               </el-select>
             </el-form-item>        
-          </div>
+          </div>         
                 </el-form>
     	</div>
              
@@ -84,6 +84,15 @@ export default {
 </script>
 <style scoped>
 .ml-20{
-	margin-left: 40px;
+	margin-left: 20px;
+}
+.common-widget-common-filter-wrap{
+	background-color: #fff;
+    border: #dde3ea solid 1px;
+    border-radius: 2px;
+    width: 1100px;
+    margin: 20px 0 15px;
+    display: -webkit-flex;
+    display: flex;
 }
 </style>
