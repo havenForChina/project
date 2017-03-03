@@ -110,7 +110,7 @@ module.exports = [
       },
       {
         "name":"红包管理",
-        "path":"/",
+        "path":"/redpackage",
         "active":false
       }
     ]

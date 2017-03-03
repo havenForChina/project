@@ -11,13 +11,15 @@ import leftBar from 'mock/leftBar'
 import order from 'mock/order'
 import merchant from 'mock/merchant'
 import activity from 'mock/activity'
+import redpackage from 'mock/redpackage'
 Vue.use(ElementUI)
 Vue.use(Vuex)
 let mock = {
   leftBar:leftBar,
   order:order,
   merchant:merchant,
-  activity:activity
+  activity:activity,
+  redpackage:redpackage
 }
 const store = new Vuex.Store({
   state:mock,
