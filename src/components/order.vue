@@ -4,23 +4,26 @@
       <ul class="app-input-list clearfix">
         <li>
           <el-form-item label="审批人">
-            <el-input v-model="orderData.account" placeholder="审批人" :size="inputSize"></el-input>
+            <el-input v-model="orderData.account" placeholder="审批人" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
           <el-form-item label="账号手机号">
-            <el-input v-model="orderData.contactumber" placeholder="账号手机号" :size="inputSize"></el-input>
+            <el-input v-model="orderData.contactumber" placeholder="账号手机号" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
           <el-form-item label="商户名称">
-            <el-input v-model="orderData.business" placeholder="商户名称" :size="inputSize"></el-input>
+            <el-input v-model="orderData.business" placeholder="商户名称" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
           <el-form-item label="订单号">
-            <el-input v-model="orderData.orderNumber" placeholder="订单号" :size="inputSize"></el-input>
+            <el-input v-model="orderData.orderNumber" placeholder="订单号" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
         </li>
         <li>
           <el-form-item label="订单状态">
             <el-select v-model="orderData.orderStatus.value" placeholder="订单状态" :size="inputSize">
-              <el-option v-for="el in orderData.orderStatus.options"  :label="el.label" :value="el.value" ></el-option>
+              <el-option v-for="el in orderData.orderStatus.options"  :label="el.label" :value="el.value" style="width: 160px" ></el-option>
             </el-select>
+            <el-form-item label="城市">
+              <el-input v-model="orderData.city" placeholder="城市" :size="inputSize"></el-input>
+            </el-form-item>
           </el-form-item>
           <span style="display: inline-block;margin-bottom: 22px">
             <span class="list-label">下单时间</span>
@@ -55,11 +58,6 @@
             <el-select v-model="orderData.distribution.value" placeholder="订单类型" :size="inputSize">
               <el-option v-for="el in orderData.distribution.options" :label="el.label" :value="el.value"></el-option>
             </el-select>
-          </el-form-item>
-        </li>
-        <li v-show="isShow">
-          <el-form-item label="城市">
-            <el-input v-model="orderData.city" placeholder="城市" :size="inputSize"></el-input>
           </el-form-item>
         </li>
       </ul>

@@ -18,6 +18,8 @@
                                 <a href="Activity-offer_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
                             </div>
                         </div>
+                    </el-col>
+                    <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
                         <div class="col-md-6 entry-block" data-privilege="营销系统-免配送费">
                             <div class="entry-icon pink">
                                 免
@@ -30,6 +32,8 @@
                                 <a href="Activity-free_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
                             </div>
                         </div>
+                    </el-col>
+                    <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
                         <div class="col-md-6 entry-block" data-privilege="营销系统-全店折扣">
                             <div class="entry-icon orange">
                                 折
@@ -43,7 +47,7 @@
                             </div>
                         </div>
                     </el-col>
-                    <el-col :span="12"><div class="grid-content ">
+                    <el-col :span="12"><div class="grid-content panel-contetn row"></div>
                         <div class="col-md-6 entry-block" data-privilege="营销系统-全店折扣">
                             <div class="entry-icon red">
                                 特
@@ -56,6 +60,8 @@
                                 <a href="Activity-special_food.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
                             </div>
                         </div>
+                 </el-col>
+                    <el-col :span="12"><div class="grid-content panel-contetn row"></div>
                         <div class="col-md-6 entry-block" data-privilege="营销系统-下单满赠">
                             <div class="entry-icon lightblue">
                                 赠
@@ -68,8 +74,7 @@
                                 <a href="Activity-gift_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
                             </div>
                         </div>
-                    </div>
-                 </el-col>
+                    </el-col>
                 </el-row>
             </div>
             <div class="entry-panel">
