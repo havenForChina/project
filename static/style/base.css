@@ -95,11 +95,16 @@ html,body,#app,.app-main,.app-leftBar {
   display: block;
 }
 .slideUp{
-  height: 0px;
+  height: 0;
   overflow: hidden;
 }
 .slideDown{
   height: auto;
+}
+.is-label:before{
+  content: "*";
+  color: #ff4949;
+  margin-right: 4px;
 }
 .app-header {
   height: 20px;

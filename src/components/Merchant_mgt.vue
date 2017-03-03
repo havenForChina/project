@@ -176,7 +176,7 @@ export default {
       merchantData:{},
       inputSize:"small",
       mSelectAll:false,
-      pageShow:true
+      pageShow:false
     }
   },
   watch:{

@@ -104,18 +104,44 @@
                     </el-form>
                 </div>
             </el-tab-pane>
-            <el-tab-pane label="外卖信息" name="2">配置管理</el-tab-pane>
-            <el-tab-pane label="账号信息" name="3">角色管理</el-tab-pane>
-            <el-tab-pane label="操作日志" name="4">定时任务补偿</el-tab-pane>
-            <el-tab-pane label="自主营销" name="5">定时任务补偿</el-tab-pane>
-            <el-tab-pane label="合同" name="6">定时任务补偿</el-tab-pane>
-            <el-tab-pane label="菜单" name="7">定时任务补偿</el-tab-pane>
+            <el-tab-pane label="外卖信息" name="2">
+                <info></info>
+            </el-tab-pane>
+            <el-tab-pane label="账号信息" name="3">
+                <Account></Account>
+            </el-tab-pane>
+            <el-tab-pane label="操作日志" name="4">
+                <log></log>
+            </el-tab-pane>
+            <el-tab-pane label="自主营销" name="5">
+                <div class="tab-box">
+
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="合同" name="6">
+                <div class="tab-box">
+
+                </div>
+            </el-tab-pane>
+            <el-tab-pane label="菜单" name="7">
+                <div class="tab-box">
+
+                </div>
+            </el-tab-pane>
         </el-tabs>
     </div>
 </template>
 <script>
+    import info from './takeaway_info.vue'
+    import Account from './Account_info.vue'
+    import log from './operation_log.vue'
     export default {
         name: 'detailed',
+        components:{
+            info,
+            Account,
+            log
+        },
         props:{
             data:Object
         },
@@ -156,17 +182,17 @@
         }
     }
 </script>
-<style scoped>
+<style>
     .detailed-main {
         padding: 20px;
     }
-    .tab-box {
+    .detailed-main .tab-box {
         overflow: auto;
     }
-    .detailed-box {
+    .detailed-main .detailed-box {
         padding: 0 10px;
     }
-    .detailed-box dt {
+    .detailed-main .detailed-box dt {
         width: 100%;
         padding-bottom: 10px;
         padding-left: 10px;
@@ -177,7 +203,7 @@
         border: 0;
         border-bottom: 1px solid #e5e5e5;
     }
-    .detailed-box dd {
+    .detailed-main .detailed-box dd {
         font-size: 14px;
         width: 600px;
         overflow: hidden;
@@ -185,50 +211,45 @@
         margin-bottom: 15px;
         position: relative;
     }
-    .detailed-box dd.text{
+    .detailed-main .detailed-box dd.text{
         margin-bottom: 15px;
     }
-    .detailed-box dd label,.detailed-box dd>span{
+    .detailed-main .detailed-box dd>label,.detailed-box dd>span{
         vertical-align: middle;
         font-size: 14px;
         color: #48576a;
         line-height: 36px;
         box-sizing: border-box;
     }
-    .detailed-box dd>label {
+    .detailed-main .detailed-box dd>label {
         width: 130px;
         text-align: right;
         position: absolute;
         padding-right: 12px;
 
     }
-    .detailed-box dd>span {
+    .detailed-main .detailed-box dd>span {
         display: block;
         margin-left: 130px;
     }
-    .detailed-box dd>span .cascade {
+    .detailed-main .detailed-box dd>span .cascade {
         width:100%;
     }
-    .detailed-box dd>span .cascade li {
+    .detailed-main .detailed-box dd>span .cascade li {
         float: left;
         width: 30%;
     }
-    .detailed-box dd>span .cascade li:first-child{
+    .detailed-main .detailed-box dd>span .cascade li:first-child{
         margin-right: 4.9%;
     }
-    .detailed-box dd>span .cascade li:last-child{
+    .detailed-main .detailed-box dd>span .cascade li:last-child{
         margin-left: 4.9%;
     }
-   .detailed-box dd .el-form-item{
+    .detailed-main .detailed-box dd .el-form-item{
         margin-bottom: 0;
     }
-    .detailed-box dd .prompt{
+    .detailed-main .detailed-box dd .prompt{
         font-size: 12px;
         color: #999;
-    }
-    .is-label:before{
-        content: "*";
-        color: #ff4949;
-        margin-right: 4px;
     }
 </style>
