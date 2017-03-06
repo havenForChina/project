@@ -82,7 +82,7 @@
                 </dd>
                 <dd class="text"><label>需提前预定天数</label><span>
 
-                        <el-input placeholder="请输入内容" v-model="input4" style="width:160px ">
+                        <el-input placeholder="请输入内容" v-model="inputSize" style="width:160px ">
                             <template slot="append">天</template>
                         </el-input>
                     </span>
@@ -146,7 +146,7 @@
                             type="textarea"
                             :rows="2"
                             placeholder="100字以内"
-                            v-model="textarea">
+                            v-model="Discount">
                     </el-input>
                 </span>
             </dd>
@@ -156,7 +156,7 @@
                             type="textarea"
                             :rows="2"
                             placeholder="300字以内"
-                            v-model="textarea">
+                            v-model="Notice">
                     </el-input>
                 </span>
             </dd>
@@ -178,6 +178,12 @@
         },
         data() {
             return {
+                facetoface:'',
+                Online:'',
+                rules:'',
+                Notice:'',
+                Discount:'',
+                allcity:'',
                 Autoorder:"Autoorder",
                 invoice:'invoice',
                 mode:'1',
