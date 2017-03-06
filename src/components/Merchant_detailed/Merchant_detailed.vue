@@ -117,9 +117,7 @@
                 <Independent></Independent>
             </el-tab-pane>
             <el-tab-pane label="合同" name="6">
-                <div class="tab-box">
-
-                </div>
+                <contract></contract>
             </el-tab-pane>
             <el-tab-pane label="菜单" name="7">
                 <div class="tab-box">
@@ -134,13 +132,15 @@
     import Account from './Account_info.vue'
     import log from './operation_log.vue'
     import Independent from './Independent.vue'
+    import contract from './contract.vue'
     export default {
         name: 'detailed',
         components:{
             info,
             Account,
             log,
-            Independent
+            Independent,
+            contract
         },
         props:{
             data:Object
