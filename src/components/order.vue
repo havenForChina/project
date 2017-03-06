@@ -16,17 +16,18 @@
             <el-input v-model="orderData.orderNumber" placeholder="订单号" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
         </li>
-        <li>
+        <li style="height: 59px;">
           <el-form-item label="订单状态">
-            <el-select v-model="orderData.orderStatus.value" placeholder="订单状态" :size="inputSize">
-              <el-option v-for="el in orderData.orderStatus.options"  :label="el.label" :value="el.value" style="width: 160px" ></el-option>
+            <el-select v-model="orderData.orderStatus.value" placeholder="订单状态" :size="inputSize" style="width: 160px">
+              <el-option v-for="el in orderData.orderStatus.options"  :label="el.label" :value="el.value" ></el-option>
             </el-select>
-            <el-form-item label="城市">
-              <el-input v-model="orderData.city" placeholder="城市" :size="inputSize"></el-input>
-            </el-form-item>
           </el-form-item>
+          <el-form-item label="城市">
+              <el-input v-model="orderData.city" placeholder="城市" :size="inputSize" style="width: 160px"></el-input>
+           </el-form-item>
+
           <span style="display: inline-block;margin-bottom: 22px">
-            <span class="list-label">下单时间</span>
+            <el-form-item label="下单时间">
             <el-date-picker
               :size="inputSize"
               v-model="value4"
@@ -36,26 +37,27 @@
               :editable="false"
               align="right">
             </el-date-picker>
+             </el-form-item>
           </span>
         </li>
         <li v-show="isShow">
           <el-form-item label="投诉状态">
-            <el-select v-model="orderData.complaintsStatus.value" placeholder="投诉状态" :size="inputSize">
+            <el-select v-model="orderData.complaintsStatus.value" placeholder="投诉状态" :size="inputSize" style="width: 160px">
               <el-option v-for="el in orderData.complaintsStatus.options" :label="el.label" :value="el.value"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="订单来源">
-            <el-select v-model="orderData.orderSource.value" placeholder="投诉状态" :size="inputSize">
+            <el-select v-model="orderData.orderSource.value" placeholder="订单来源" :size="inputSize" style="width: 160px">
               <el-option v-for="el in orderData.orderSource.options" :label="el.label" :value="el.value"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="订单类型">
-            <el-select v-model="orderData.orderType.value" placeholder="订单类型" :size="inputSize">
+            <el-select v-model="orderData.orderType.value" placeholder="订单类型" :size="inputSize" style="width: 160px">
               <el-option v-for="el in orderData.orderType.options" :label="el.label" :value="el.value"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="配送方">
-            <el-select v-model="orderData.distribution.value" placeholder="订单类型" :size="inputSize">
+            <el-select v-model="orderData.distribution.value" placeholder="配送方" :size="inputSize" style="width: 160px">
               <el-option v-for="el in orderData.distribution.options" :label="el.label" :value="el.value"></el-option>
             </el-select>
           </el-form-item>
@@ -177,7 +179,7 @@
   .btn-more {
     text-align: center;
     cursor: pointer;
-    margin: 20px 0;
+    margin: 0;
   }
   .app-from-btn {
     padding-left: 110px;
