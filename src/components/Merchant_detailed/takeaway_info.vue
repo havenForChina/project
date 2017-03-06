@@ -208,8 +208,8 @@
     }
 </script>
 <style scoped>
-    .icon-default {
+    /*.icon-default {
         background-image: url("../../assets/497236c9d6616b4182ae6c4ef06c8710f0.jpg");
-    }
+    }*/
 
 </style>
