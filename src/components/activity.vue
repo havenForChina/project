@@ -4,103 +4,54 @@
         <div class="block-content" data-node="entry">
             <div class="entry-panel">
                 <h4 class="panel-head"><span class="panel-head-text"><i class="fa fa-cogs"></i>&nbsp;营销活动</span></h4>
-                <el-row>
-                    <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
-                        <div class="col-md-6 entry-block" data-privilege="营销系统-立减优惠">
-                            <div class="entry-icon red">
-                                减
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-name">
-                                    立减优惠
+                <el-row >
+                    <el-col :span="12" v-for="item in activitydata"><div class="grid-content  panel-contetn row"></div>
+                            <div class="col-md-6 entry-block" :data-privilege="[item.name]">
+                                <div class="entry-icon" :class="[item.color]">
+                                    {{item.icon_text}}
                                 </div>
-                                <p class="entry-desc">立减优惠是指订单维度的价格满立减，是对满足指定条件的订单进行减价的营销规则，满X元，立减Y元，X,Y可设置。</p>
-                                <a href="Activity-offer_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
+                                <div class="entry-content">
+                                    <div class="entry-name">
+                                        {{item.name}}
+                                    </div>
+                                    <p class="entry-desc">{{item.detail}}</p>
+                                    <a class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
+                                </div>
                             </div>
-                        </div>
                     </el-col>
-                    <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
-                        <div class="col-md-6 entry-block" data-privilege="营销系统-免配送费">
-                            <div class="entry-icon pink">
-                                免
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-name">
-                                    免配送费
-                                </div>
-                                <p class="entry-desc">免配送费是指对满足指定条件的订单进行免配送费的营销规则，满X元，免配送费，X可设置。</p>
-                                <a href="Activity-free_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
-                        <div class="col-md-6 entry-block" data-privilege="营销系统-全店折扣">
-                            <div class="entry-icon orange">
-                                折
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-name">
-                                    全店折扣
-                                </div>
-                                <p class="entry-desc">全店折扣是针对商户全店享受固定折扣的营销活动，在线支付享X折，X可设置</p>
-                                <a href="Activity-discount_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
-                            </div>
-                        </div>
-                    </el-col>
-                    <el-col :span="12"><div class="grid-content panel-contetn row"></div>
-                        <div class="col-md-6 entry-block" data-privilege="营销系统-全店折扣">
-                            <div class="entry-icon red">
-                                特
-                            </div>
-                            <div class="entry-content" >
-                                <div class="entry-name">
-                                    特价菜
-                                </div>
-                                <p class="entry-desc">每个月只有一次的特价菜</p>
-                                <a href="Activity-special_food.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
-                            </div>
-                        </div>
-                 </el-col>
-                    <el-col :span="12"><div class="grid-content panel-contetn row"></div>
-                        <div class="col-md-6 entry-block" data-privilege="营销系统-下单满赠">
-                            <div class="entry-icon lightblue">
-                                赠
-                            </div>
-                            <div class="entry-content">
-                                <div class="entry-name">
-                                    下单满赠
-                                </div>
-                                <p class="entry-desc">下单满赠，是指用户消费的订单满X元，即可赠送赠品。</p>
-                                <a href="Activity-gift_list.html" class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
-                            </div>
-                        </div>
-                    </el-col>
-                </el-row>
+                 </el-row>
             </div>
             <div class="entry-panel">
                 <h4 class="panel-head"><span class="panel-head-text"><i class="fa fa-server"></i>&nbsp;监控与日志</span></h4>
                     <el-row>
-                        <el-col :span="12"><div class="grid-content  panel-contetn row"></div>
-                            <div class="col-md-6 entry-block">
-                                <div class="entry-icon normal">
-                                    <i class="fa fa-book"></i>
-                                </div>
-                                <div class="entry-icon lightblue">
-                                    报
+                        <el-col :span="12" v-for="item in logging"><div class="grid-content  panel-contetn row"></div>
+                            <div class="col-md-6 entry-block" data-privilege="营销系统">
+                                <div class="entry-icon" :class="[item.color]">
+                                    {{item.icon_text}}
                                 </div>
                                 <div class="entry-content">
                                     <div class="entry-name">
-                                        活动日报
+                                        {{item.name}}
                                     </div>
-                                    <p class="entry-desc">查看活动受系统调整情况并对其进行反馈。</p>
-                                    <a href="Activity-offer_log.html" class="btn btn-primary">
-                                        <i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
+                                    <p class="entry-desc">{{item.detail}}</p>
+                                    <a class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
                                 </div>
                             </div>
                         </el-col>
                     </el-row>
                 </div>
         </div>
+        <!--<div class="app-dropdown-page fade" :class="pageShow && 'top0'">-->
+            <!--<div class="app-dropdown-box">-->
+                <!--<div class="app-dropdown-body back-box">-->
+                    <!--<div class="app-dropdown-title">-->
+                        <!--<h2>大叔的丝袜奶茶铺（老街店) - 商户详情</h2>-->
+                        <!--<i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>-->
+                    <!--</div>-->
+                    <!--<tmp is="detailed" :data="merchantData"></tmp>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
     </div>
 </template>
 <script>
@@ -110,8 +61,46 @@
             return {
                 activityData: null,
                 isShow: false,
-                dialogVisible: false
+                dialogVisible: false,
+                key_link:'',
+                activitydata:[
+                    {"icon_text":'减',
+                        "key":'jian',
+                        "color":'red',
+                        "name":'立减优惠',
+                        "detail":'立减优惠是指订单维度的价格满立减，是对满足指定条件的订单进行减价的营销规则，满X元，立减Y元，X,Y可设置。'},
+                    {"icon_text":'免',
+                        "key":'mian',
+                        "color":'pink',
+                        "name":'免配送费',
+                        "detail":'免配送费是指对满足指定条件的订单进行免配送费的营销规则，满X元，免配送费，X可设置。'},
+                    {"icon_text":'折',
+                        "key":'zhe',
+                        "color":'orange',
+                        "name":'全店折扣',
+                        "detail":'全店折扣是针对商户全店享受固定折扣的营销活动，在线支付享X折，X可设置'},
+                    {"icon_text":'特',
+                        "key":'te',
+                        "color":'red',
+                        "name":'特价菜',
+                        "detail":'每月独享一次的特价菜'},
+                    {"icon_text":'赠',
+                        "key":'zeng',
+                        "color":'lightblue',
+                        "name":'下单满赠',
+                        "detail":'下单满赠，是指用户消费的订单满X元，即可赠送赠品。'}
+                ],
+                logging:[
+                    {
+                        "icon_text":'报',
+                        "key":'bao',
+                        "color":'lightblue',
+                        "name":' 活动日报',
+                        "detail":'查看活动受系统调整情况并对其进行反馈。'
+                    }
+                ]
             }
+
         },
         methods: {
             changeData(){
@@ -120,7 +109,8 @@
         },
         created(){
             this.activityData = this.$store.state.activity
-        }
+        },
+
     }
 </script>
 <style scoped>
@@ -208,11 +198,9 @@
 }
 .btn-primary{
     background-color: #46c3c1;
-    color: ##fff;
     border:#46c3c1 solid 1px;
 }
 .btn{
-    color: 4px 12px;
     display: inline-block;
     padding: 6px 12px;
     margin-bottom: 0;
@@ -248,5 +236,31 @@ p{
 }
 .widget-createentry .entry-panel .orange{
     background: #ff9e36;
+}
+.app-dropdown-page{
+    width:100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top:-1000px;
+    z-index: 10;
+}
+.app-dropdown-page .app-dropdown-box {
+    position: relative;
+    padding: 44px 20px 0 189px;
+}
+.app-dropdown-title{
+    font-size: 14px;
+    padding: 20px;
+    position: relative;
+}
+.app-dropdown-close {
+    position: absolute;
+    right: 20px;
+    top: 23px;
+    cursor: pointer;
+}
+.top0 {
+    top:0
 }
 </style>
