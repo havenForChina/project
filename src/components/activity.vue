@@ -15,7 +15,7 @@
                                         {{item.name}}
                                     </div>
                                     <p class="entry-desc">{{item.detail}}</p>
-                                    <a class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
+                                    <a class="btn btn-primary" @click="pageShow=true,key_link=item"></i>&nbsp;进入</a>
                                 </div>
                             </div>
                     </el-col>
@@ -34,34 +34,43 @@
                                         {{item.name}}
                                     </div>
                                     <p class="entry-desc">{{item.detail}}</p>
-                                    <a class="btn btn-primary"><i class="fa fa-share fa-rotate-180"></i>&nbsp;进入</a>
+                                    <a class="btn btn-primary"></i>&nbsp;进入</a>
                                 </div>
                             </div>
                         </el-col>
                     </el-row>
                 </div>
         </div>
-        <!--<div class="app-dropdown-page fade" :class="pageShow && 'top0'">-->
-            <!--<div class="app-dropdown-box">-->
-                <!--<div class="app-dropdown-body back-box">-->
-                    <!--<div class="app-dropdown-title">-->
-                        <!--<h2>大叔的丝袜奶茶铺（老街店) - 商户详情</h2>-->
-                        <!--<i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>-->
-                    <!--</div>-->
-                    <!--<tmp is="detailed" :data="merchantData"></tmp>-->
-                <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="app-dropdown-page fade" :class="pageShow && 'top0'">
+            <div class="app-dropdown-box">
+                <div class="app-dropdown-body back-box">
+                    <div class="app-dropdown-title">
+                        <el-breadcrumb separator="/" class="app-breadcrumb">
+                            <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
+                            <el-breadcrumb-item :to="{ path: $route.path}">{{$route.name}}</el-breadcrumb-item>
+                            <h2>营销活动-{{key_link.name}}</h2>
+                        </el-breadcrumb>
+                        <i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>
+                    </div>
+                    <tmp is="list"></tmp>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
+    import list from"./activity/list.vue"
     export default {
         name: 'activity',
+        components:{
+            list
+        },
         data() {
             return {
                 activityData: null,
                 isShow: false,
                 dialogVisible: false,
+                pageShow:false,
                 key_link:'',
                 activitydata:[
                     {"icon_text":'减',
@@ -86,7 +95,7 @@
                         "detail":'每月独享一次的特价菜'},
                     {"icon_text":'赠',
                         "key":'zeng',
-                        "color":'lightblue',
+                        "color":'pink',
                         "name":'下单满赠',
                         "detail":'下单满赠，是指用户消费的订单满X元，即可赠送赠品。'}
                 ],
@@ -110,6 +119,15 @@
         created(){
             this.activityData = this.$store.state.activity
         },
+        watch:{
+            pageShow(n,o){
+                if(n){
+                    $('body').css('overflow','hidden')
+                }else {
+                    $('body').css('overflow','auto')
+                }
+            }
+        }
 
     }
 </script>
@@ -149,7 +167,6 @@
     border-bottom: solid 1px #333;
     margin-bottom: -1px;
 }
-
 .row{
     margin-right:-15px;
     margin-left: -15px;
@@ -218,7 +235,7 @@
     -moz-user-select: none;
     -ms-user-select: none;
     -o-user-select: none;
-    user-select: none;;
+    user-select: none;
 }
 a{
     text-decoration:none;
@@ -263,4 +280,5 @@ p{
 .top0 {
     top:0
 }
+
 </style>
