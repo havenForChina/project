@@ -116,10 +116,7 @@ html,body,#app,.app-main,.app-leftBar {
 }
 .app-header {
   height: 20px;
-  background-color: rgb(70, 195, 193);
-  background-image: url(../../src/assets/logo.png);
-  background-position: 18px center;
-  background-repeat: no-repeat;
+  background: rgb(70, 195, 193);
   background-size: auto 60%;
   padding: 7px 0;
   line-height: 20px;
@@ -133,7 +130,17 @@ html,body,#app,.app-main,.app-leftBar {
   font-size: 16px;
   color: #fff;
   font-weight: 700;
-  padding-left: 44px;
+  padding-left: 20px;
+}
+.app-title img {
+  width: 23px;
+  height: 21px;
+  display: inline-block;
+  vertical-align: top;
+}
+.app-title h1 {
+  display: inline-block;
+  margin-left: 6px;
 }
 .app-account {
   font-size: 14px;

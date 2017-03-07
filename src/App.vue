@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="app-header">
-      <span class="app-title fl">聚兔总管</span>
+      <span class="app-title fl"><img src="./assets/logo.png" alt=""><h1>聚兔总管</h1></span>
       <div class="app-account fr">
         <span class="app-count">通知中心</span>&nbsp;&nbsp;|&nbsp;&nbsp;
         <div class="app-name">Haven &nbsp;<span class=' el-icon-caret-bottom'></span></div>
@@ -87,6 +87,7 @@
     computed: {
     },
     mounted(){
+
     },
     data(){
       return {

@@ -28,7 +28,8 @@ module.exports = {
       'vue$': 'vue/dist/vue.common.js',
       'src': resolve('src'),
       'assets': resolve('src/assets'),
-      'components': resolve('src/components')
+      'components': resolve('src/components'),
+      'resource':resolve('src/api')
     }
   },
   module: {
@@ -59,6 +60,15 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       }
-    ]
+    ]/*,
+    vue: {
+      loaders: utils.cssLoaders({ sourceMap: useCssSourceMap }),
+      postcss: [
+        require('autoprefixer')({
+          browsers: ['last 2 versions']
+        })
+      ]
+    },
+    plugins: plugins*/
   }
 }

@@ -133,6 +133,7 @@
 </template>
 
 <script>
+  import {Merchant_main} from 'resource'
   import selectInput from './template/selectInput.vue'
   import detailed from './Merchant_detailed/Merchant_detailed.vue'
 export default {
@@ -176,7 +177,7 @@ export default {
       merchantData:{},
       inputSize:"small",
       mSelectAll:false,
-      pageShow:false
+      pageShow:true
     }
   },
   watch:{
@@ -189,6 +190,9 @@ export default {
     }
   },
   created(){
+    Merchant_main({},function (data) {
+      console.log(data)
+    })
     this.merchantData = this.$store.state.merchant
     this.mSelectAll = this.merchantData.selectMerchant.length == this.merchantData.merchantList.length? true : false
   }

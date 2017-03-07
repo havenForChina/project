@@ -12,7 +12,7 @@ import activity from 'mock/activity'
 import redpackage from 'mock/redpackage'
 Vue.use(ElementUI)
 Vue.use(Vuex)
-let mock = {
+let state = {
   leftBar:leftBar,
   order:order,
   merchant:merchant,
@@ -20,7 +20,7 @@ let mock = {
   redpackage:redpackage
 }
 const store = new Vuex.Store({
-  state:mock,
+  state:state,
   mutations:{
     dialog(state){
       state.showDialog = !state.showDialog

@@ -131,7 +131,7 @@
                 <el-radio class="radio" v-model="transaction_info.BusinessVouchers" label="disBussiness">否</el-radio>
            </span>
             </dd>
-            <dd class="text"  v-model="transaction_info"><label> 餐盒单价</label>
+            <dd class="text"><label> 餐盒单价</label>
                 <span>{{transaction_info.price}}元</span>
             </dd>
             <dd class="text"><label>接单方式</label><span>

@@ -142,14 +142,15 @@
                         </div>
                     </div>
                     <div class="category-box">
-                        <div class="category" v-for="(el,index) in data.cateList" :key="el.id">
+                        <div class="category" v-for="(el,index) in data.Dishes" :key="el.id">
                             <div class="category-heading clearfix">
-                                单品
+                                {{el.name}}
                             </div>
                             <ul class="category-body clearfix" v-show="el.isOpen">
                                 <li v-for="(val,key) in el.item" :key="val.id">
                                     <input type="checkbox" class="batch-checkbox" />
                                     <div class="combo-icon-wrap">
+                                        <span class="combo-icon-label">在线</span>
                                         <img class="combo-icon" src="../../assets/timg.jpeg" width="100%">
                                         <span class="lowPixel" v-if="val.isClearance">低清</span>
                                         <span class="saleout-status" v-if="val.isDiscontinued">停 售</span>
@@ -178,12 +179,6 @@
                                                 <span v-if="val.isSingle">单品</span>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="action">
-                                        <el-button size="mini">移出该分类</el-button>
-                                        <el-button size="mini" :disabled="!val.isDisable">暂停售卖</el-button>
-                                        <el-button size="mini" :disabled="val.isDisable">恢复售卖</el-button>
-                                        <el-button size="mini">下架</el-button>
                                     </div>
                                 </li>
                             </ul>
@@ -335,7 +330,6 @@
         margin: 0 20px 20px 0;
         background-color: #fafafa;
         position: relative;
-        overflow: hidden;
     }
 
     .combo-icon-wrap {
@@ -345,7 +339,33 @@
         float: left;
         position: relative;
     }
-
+    .combo-icon-label {
+        position: absolute;
+        display: block;
+        top: -6px;
+        right: 0;
+        padding: 0 .8em;
+        white-space: normal;
+        height: 20px;
+        line-height: 20px;
+        font-size: 10px;
+        font-weight: 400;
+        background: #ff6156;
+        color: #fff;
+    }
+    .combo-icon-label:after {
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        border-bottom-color: #c53c33;
+        border-width: 4px;
+        top:2px;
+        left: -4px;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(135deg);
+    }
     .lowPixel {
         color: #fff;
         font-size: 20px;
@@ -474,6 +494,7 @@
         font-size: 14px;
         position: relative;
         cursor: pointer;
+        z-index: 10;
     }
     .filter-selected i {
         font-size: 10px;
