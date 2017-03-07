@@ -1,15 +1,15 @@
 <template>
     <div class="tab-box">
-        <el-form label-width="130px" :model="contract" :rules="rules" ref="data">
+        <el-form label-width="130px">
             <dl class="detailed-box">
                 <dt>
                    合同模板
                 </dt>
                <dd>
                   <el-form-item label="当前合同模板：">
-                                    <el-select v-model="contract.value_template" placeholder="餐饮" :size="inputSize">
+                                    <el-select v-model="contract_template.value_template" placeholder="餐饮" :size="inputSize">
                                         <el-option
-                                                v-for="el in contract.option_template"
+                                                v-for="el in contract_template.option_template"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -21,7 +21,7 @@
                 </dt>
                   <dd>
                   <el-form-item label="合同状态:">
-                  	<span>{{contract.states}}</span>
+                  	<span>{{contract_state.states}}</span>
                     <span style="padding-left: 100px; color:#1D8CE0 ;">查看合同</span>                           
                       <span style="padding-left: 100px; color:#1D8CE0 ;">查看日志</span>         
                                 </el-form-item>
@@ -39,10 +39,10 @@
   </el-radio-group>
                                 </el-form-item>
                                 <el-form-item label="合同签订日期:">
-                                   <span>2017-02-06</span>
+                                   <span>{{contract_validity.sign}}</span>
                                 </el-form-item>
                                   <el-form-item label="合同到期日期:">
-                  	        <span>2018-02-06</span>
+                  	        <span>{{contract_validity.expire}}</span>
                                 </el-form-item>
                             </dd> 
                                                       <dt>
@@ -57,7 +57,7 @@
                                 </el-form-item>
                                </dd>  
                          <el-form-item label="联系人:">                    
-   <el-form :inline="true" :model="contract" class="demo-form-inline">
+   <el-form :inline="true"  class="demo-form-inline">
    	<div class="fl">
   <el-form-item label="姓名">
     <el-input  placeholder="必填,1~50个字符" style="width: 140px;"></el-input>
@@ -90,7 +90,7 @@
                   乙方信息
                 </dt>  
                   <el-form-item label="联系人:">                    
-   <el-form :inline="true" :model="contract" class="demo-form-inline">
+   <el-form :inline="true"  class="demo-form-inline">
    	<div class="fl">
   <el-form-item label="姓名">
     <el-input  placeholder="必填,1~50个字符" style="width: 140px;"></el-input>
@@ -116,9 +116,9 @@
            <div @click="add_new"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>  
            <dt>甲方账户信息</dt>
               <el-form-item label="账号类型：">
-                                    <el-select v-model="contract.value_accountType" placeholder="餐饮">
+                                    <el-select v-model="a_account.value_accountType" placeholder="餐饮">
                                         <el-option
-                                                v-for="el in contract.option_accountType"
+                                                v-for="el in a_account.option_accountType"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -154,9 +154,9 @@
                                 <dt>出餐方式</dt>
                                 <dd>
                                  <el-form-item label="出餐时间：">
-                                    <el-select v-model="contract.value_meal" placeholder="15分钟" :size="inputSize">
+                                    <el-select v-model="way_meal.value_meal" placeholder="15分钟" :size="inputSize">
                                         <el-option
-                                                v-for="el in contract.option_meal"
+                                                v-for="el in way_meal.option_meal"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -172,9 +172,9 @@
                                 <dt>压款方式(仅限百度物流配送)</dt>
                                <div class="fl">
                                 	 <el-form-item label="压款方式：">
-                                    <el-select v-model="contract.value_press" placeholder="15分钟" :size="inputSize">
+                                    <el-select v-model="way_press.value_press" placeholder="15分钟" :size="inputSize">
                                         <el-option
-                                                v-for="el in contract.option_press"
+                                                v-for="el in way_press.option_press"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -188,9 +188,9 @@
                                   </dt>
                               <dd>
                               <el-form-item label="配送方式：">
-                                    <el-select v-model="contract.value_distribution" placeholder="请选择" :size="inputSize">
+                                    <el-select v-model="way_distribution.value_distribution" placeholder="请选择" :size="inputSize">
                                         <el-option
-                                                v-for="el in contract.option_distribution"
+                                                v-for="el in way_distribution.option_distribution"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -206,9 +206,9 @@
                                  </div>
                                  <div class="fl">
                                <el-form-item label="结算周期：">
-                                    <el-select v-model="contract.value_settlement" placeholder="日结" :size="inputSize">
+                                    <el-select v-model="way_distribution.value_settlement" placeholder="日结" :size="inputSize">
                                         <el-option
-                                                v-for="el in contract.option_settlement"
+                                                v-for="el in way_distribution.option_settlement"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -233,7 +233,7 @@
                          <dt>补充约定</dt>
                          <div style="clear: both;"></div>
                          <div style="margin-left: 100px;">
-                          <el-checkbox v-model="checked1">基于甲乙双方的战略伙伴关系，甲方承诺不与任何其他外卖业务平台合作，仅与乙方在百度外卖平台开展合作。</el-checkbox>  
+                          <el-checkbox>基于甲乙双方的战略伙伴关系，甲方承诺不与任何其他外卖业务平台合作，仅与乙方在百度外卖平台开展合作。</el-checkbox>  
                           <div style="margin-left: -60px;" >
                            <el-form-item label="有效期:">
                   	         <el-radio-group style=" float: left; padding-top: 10px;" >
@@ -242,9 +242,9 @@
   </el-radio-group>
   <el-input placeholder="5" style="width: 60px; float: left;"></el-input>
                               <el-form-item style="float: left;">
-                                    <el-select v-model="contract.value_validity" placeholder="月"  style="width: 80px;">
+                                    <el-select v-model="supply_agree.value_validity" placeholder="月"  style="width: 80px;">
                                         <el-option
-                                                v-for="el in contract.option_validity"
+                                                v-for="el in supply_agree.option_validity"
                                                 :label="el.label"
                                                 :value="el.value">
                                         </el-option>
@@ -252,12 +252,12 @@
                                 </el-form-item>
                                 </el-form-item>
                                 </div>
-                         <el-checkbox v-model="checked2">不参加技术服务费计算的品类。</el-checkbox>
+                         <el-checkbox>不参加技术服务费计算的品类。</el-checkbox>
                          <el-input
   type="textarea"
   :rows="2"
   placeholder="请输入内容"
-  v-model="textarea" style="width: 800px;">
+  style="width: 800px;">
 </el-input>
                             </div> 
             </dl>
@@ -269,7 +269,11 @@
         name: 'account',
         data(){
             return {
-               "contract":{
+            	 inputSize:"small",
+            	  radio_validity: 3,
+                 radio_explain:2,
+                 radio1:1,
+        "contract_template":{
                	  "value_template":1,
         "option_template":[
             {"label":"餐饮", "value":1},
@@ -281,55 +285,68 @@
             {"label":"生活服务", "value":7},
             {"label":"水果生鲜", "value":8},
              {"label":"质享生活", "value":9}
-        ],  
-       "value_accountType":3,
+        ]}, 
+        "contract_state":{
+        	"states":"有效"
+        },
+        "contract_validity":{	
+        	"sign":"2017-02-06",
+        "expire":"2018-02-06"
+        },
+        "a_information":{
+        },
+        "b_information":{
+        },
+        "a_account":{
+        	 "value_accountType":3,
         "option_accountType":[
             {"label":"请选择", "value":1},
             {"label":"对公", "value":2},
             {"label":"对私", "value":3},
             
-        ],
-        "value_meal":2,
+        ]
+        },
+        "way_meal":{
+        	 "value_meal":2,
         "option_meal":[
             {"label":"请选择", "value":1},
             {"label":"15分钟", "value":2},
             {"label":"30分钟", "value":3},
             {"label":"其他", "value":4},
             
-        ],
-        "value_press":2,
+        ]
+        },
+        "way_press":{
+        	 "value_press":2,
         "option_press":[
             {"label":"压商户款", "value":1},
             {"label":"压物流款", "value":2},
          
-        ],
-        "value_distribution":2,
+        ]
+        },
+      "way_distribution":{
+      	  "value_distribution":2,
         "option_distribution":[
             {"label":"请选择", "value":1},
             {"label":"自配送", "value":2},
             {"label":"聚兔专送", "value":3},
         ],
-        "value_settlement":1,
+         "value_settlement":1,
         "option_settlement":[
             {"label":"日结", "value":1},
             {"label":"周结", "value":2},
             {"label":"月结", "value":3},
-        ],
-         "value_validity":1,
+        ]
+      },
+      "supply_agree":{
+      	  "value_validity":1,
         "option_validity":[
             {"label":"月", "value":1},
-            {"label":"天", "value":2},
-           
-        ],
-        "states":"有效"
-        
-               },
-                inputSize:"small",
-                 radio_validity: 3,
-                 radio_explain:2,
-                 radio1:1
-            }
-        },
+            {"label":"天", "value":2},     
+        ]
+      }
+}
+},
          methods:{
          	add_new(){
          		alert("aaa");
