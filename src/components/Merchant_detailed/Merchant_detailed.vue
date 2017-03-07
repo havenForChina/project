@@ -2,7 +2,7 @@
     <div class="detailed-main">
         <el-tabs v-model="activeName" type="card" @tab-click="handleClick">
             <el-tab-pane label="商户详情" name="1">
-                <div class="tab-box">
+                <div class="tab-box clearfix">
                     <el-form label-width="130px" :model="data.detailed" :rules="rules" ref="data">
                         <dl class="detailed-box">
                             <dt>
@@ -55,22 +55,31 @@
                                 <label class="is-label">商户地址</label>
                                 <span>
                                     <ul class="cascade clearfix">
-                                        <li><el-select placeholder="请选择" :size="inputSize">
-                                        <el-option label="1" :value="1"></el-option>
-                                    </el-select></li>
-                                         <li><el-select placeholder="请选择" :size="inputSize">
-                                        <el-option label="1" :value="1"></el-option>
-                                    </el-select></li>
-                                         <li><el-select placeholder="请选择" :size="inputSize">
-                                        <el-option label="1" :value="1"></el-option>
-                                    </el-select></li>
+                                        <li>
+                                            <el-select placeholder="请选择" :size="inputSize" v-model="data.detailed.province" @change="Emptied('province')">
+                                                <el-option v-for="(el,key) in country[86]" :label="el" :value="key">
+                                                </el-option>
+                                            </el-select>
+                                        </li>
+                                         <li>
+                                             <el-select placeholder="请选择省份" :disabled="disableCity" :size="inputSize" v-model="data.detailed.city" @change="Emptied('city')">
+                                                <el-option v-for="(el,key) in country[data.detailed.province]" :label="el" :value="key">
+                                                </el-option>
+                                            </el-select>
+                                         </li>
+                                         <li >
+                                             <el-select placeholder="请选择市区" :disabled="disableCounty" :size="inputSize" v-model="data.detailed.county" @change="Emptied('county')">
+                                                <el-option v-for="(el,key) in country[data.detailed.city]" :label="el" :value="key">
+                                                </el-option>
+                                            </el-select>
+                                         </li>
                                     </ul>
-                                    <el-input v-model="input" placeholder="范围仅限：中国大陆+香港+澳门" :size="inputSize"></el-input>
+                                    <el-input v-model="data.detailed.address" placeholder="范围仅限：中国大陆+香港+澳门" :size="inputSize"></el-input>
                                 </span>
                             </dd>
                             <dd>
                                 <el-form-item label="选择经纬度" >
-                                    <el-input :size="inputSize" placeholder="经纬度坐标"></el-input>
+                                    <el-input :size="inputSize" placeholder="经纬度坐标" v-model="data.detailed.coordinate"></el-input>
                                     <p class="prompt">使用高德坐标系，示例(116.376673,39.99679)在
                                         <span style="color: #428bca; cursor: pointer" @click="openMap">地图上选位置</span>
                                     </p>
@@ -94,7 +103,7 @@
                             </dd>
                             <dd>
                                 <el-form-item label="商户电话" >
-                                    <el-input :size="inputSize" placeholder="格式为：区号-电话号码/其他号码，其他号码只能填一个"></el-input>
+                                    <el-input v-model="data.detailed.tel" :size="inputSize" placeholder="格式为：区号-电话号码/其他号码，其他号码只能填一个"></el-input>
                                 </el-form-item>
                             </dd>
                             <dt>
@@ -120,9 +129,7 @@
                 <contract></contract>
             </el-tab-pane>
             <el-tab-pane label="菜单" name="7">
-                <div class="tab-box">
-
-                </div>
+                <merchant_menu :data = 'data.menu_manage'></merchant_menu>
             </el-tab-pane>
         </el-tabs>
     </div>
@@ -131,7 +138,9 @@
     import info from './takeaway_info.vue'
     import Account from './Account_info.vue'
     import log from './operation_log.vue'
+    import merchant_menu from './merchant_menu.vue'
     import Independent from './Independent.vue'
+    import city from '../../../static/js/city'
     import contract from './contract.vue'
     export default {
         name: 'detailed',
@@ -139,6 +148,7 @@
             info,
             Account,
             log,
+            merchant_menu,
             Independent,
             contract
         },
@@ -147,7 +157,7 @@
         },
         data() {
             return {
-                activeName: "1",
+                activeName: "7",
                 inputSize:"small",
                 input:'',
                 rules: {
@@ -157,7 +167,8 @@
                     categoryValue: [
                         {type: 'number', required: true, message: '请选择', trigger: 'change' }
                     ]
-                }
+                },
+                country:city
             }
         },
         computed:{
@@ -166,6 +177,13 @@
             },
             btnDisable(){
                 return this.data.detailed.categoryValue == '' ? true : false
+            },
+            disableCity(){
+                return this.data.detailed.province == '' ? true:false
+            },
+            disableCounty(){
+                let _this = this.data.detailed
+                return _this.city == '' ? true:this.country[_this.city] == undefined ? true : false
             }
         },
         methods: {
@@ -174,6 +192,13 @@
             },
             openMap(){
                 console.log('打开地图插件')
+            },
+            Emptied(type){
+                if(type == 'province'){
+                    this.data.detailed.city='';this.data.detailed.county = ''
+                }else if(type == 'city'){
+                    this.data.detailed.county=''
+                }
             }
         },
         mounted(){
@@ -188,9 +213,8 @@
     }
     .detailed-main .tab-box {
         overflow: auto;
-    }
-    .detailed-main .detailed-box {
         padding: 0 10px;
+        position: relative;
     }
     .detailed-main .detailed-box dt {
         width: 100%;
