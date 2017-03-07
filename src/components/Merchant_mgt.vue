@@ -119,7 +119,7 @@
       </li>
     </ul>
     <div class="app-dropdown-page fade" :class="pageShow && 'top0'">
-      <div class="app-dropdown-box">
+      <div class="app-dropdown-box fade">
         <div class="app-dropdown-body back-box">
           <div class="app-dropdown-title">
             <h2>大叔的丝袜奶茶铺（老街店) - 商户详情</h2>
