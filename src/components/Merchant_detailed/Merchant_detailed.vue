@@ -8,7 +8,7 @@
                             <dt>
                                 基本信息
                             </dt>
-                            <dd class="text"><label>代理商</label> <span>{{data.detailed.Agents}}</span></dd>
+                            <dd class="text "><label>代理商</label> <span>{{data.detailed.Agents}}</span></dd>
                             <dd class="required">
                                 <el-form-item label="商户名称" prop="name">
                                     <el-input :size="inputSize" v-model="data.detailed.name" placeholder="连锁店标注为“品牌(分店名)形式"></el-input>
@@ -109,6 +109,14 @@
                             <dt>
                                 营业资质
                             </dt>
+                           <div class="block">
+  <!--<span class="demonstration"></span>-->
+  <el-cascader
+    expand-trigger="hover"
+    :options="options"
+    @change="handleChange">
+  </el-cascader>
+</div>
                         </dl>
                     </el-form>
                 </div>
@@ -157,6 +165,113 @@
         },
         data() {
             return {
+            	 options: [
+            	 {
+            	 	value:'zhutizizhi',
+            	 	label:'主体资质',
+            	 	 children: [{
+            value: 'yingyezhizhao',
+            label: '营业执照',
+            	 },
+            	 {
+            	 	value:'shuiwudengjizheng',
+            	 	label:'税务登记证',
+            	 	
+            	 },
+            	 {
+            	 	value:'zuzhijigoudaimazheng',
+            	 	label:'组织机构代码证'
+            	 },
+            	 {
+            	 	value:'yinhangkaihuxukezheng',
+            	 	label:'银行开户许可证'
+            	 },
+            	 {
+            	 	value:'tidaiyingyezhizhaodezizhi',
+            	 	label:'替代营业执照的资质'
+            	 }
+            	 	 ]
+            	 	 
+            	 	},
+            	 	{
+            	 	value:'hangyezizhi',
+            	 	label:'行业资质',
+            	 	 children: [{
+            value: 'canyinfuwuxukezheng',
+            label: '餐饮服务许可证',
+            	 },
+            	 {
+            	 	value:'shipinliutongxukezheng',
+            	 	label:'食品流通许可证'
+            	 },
+            	 {
+            	 	value:'shipinjingyingxukezheng',
+            	 	label:'食品经营许可证'
+            	 },
+            	 {
+            	 	value:'shipinweishengxukezheng',
+            	 	label:'食品卫生许可证'
+            	 },
+            	 {
+            	 	value:'qingzhenshipinjingyingxukezheng',
+            	 	label:'清真食品生产经营许可证'
+            	 },
+            	 {
+            	 	value:'quanguogongyechanpinshengchanxukezheng',
+            	 	label:'全国工业产品生产许可证'
+            	 },
+            	 {
+            	 	value:'jiuleizizhi',
+            	 	label:'酒类资质'
+            	 },
+            	 {
+            	 	value:'yaopinleizizhi',
+            	 	label:'药品类资质'
+            	 },
+            	 {
+            	 	value:'qitateshuzizhi',
+            	 	label:'其他特殊资质(地方性)'
+            	 }
+            	 	 ]
+            	 	 
+            	 	},
+            	 	{
+            	 	value:'shenfenzhengminng',
+            	 	label:'身份证明',
+            	 	 children: [{
+            value: 'shenfenzheng',
+            label: '身份证',
+            	 },
+            	 {
+            	 	value:'tidaishenfenzhengdezhengming',
+            	 	label:'替代身份证的证明'
+            	 }
+            	 	 ]
+            	 	 
+            	 	},
+            	 	{
+            	 	value:'qitazhengjian',
+            	 	label:'其他证件',	
+            	 	},
+            	 	{
+            	 	value:'menlianzhaopian',
+            	 	label:'门脸照片',	
+            	 	},
+            	 	{
+            	 	value:'tangshizhaopian',
+            	 	label:'堂食照片',	
+            	 	},
+            	 	{
+            	 	value:'mingchuliangzao',
+            	 	label:'明厨亮灶',	
+            	 	},
+            	 	{
+            	 	value:'hetong',
+            	 	label:'合同',	
+            	 	},
+            	 	
+            	 ],
+            	 
                 activeName: "7",
                 inputSize:"small",
                 input:'',
@@ -199,7 +314,10 @@
                 }else if(type == 'city'){
                     this.data.detailed.county=''
                 }
-            }
+            },
+             handleChange(value) {
+        console.log(value);
+      }
         },
         mounted(){
             let wh = $(window).height()
