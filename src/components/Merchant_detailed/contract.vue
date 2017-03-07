@@ -21,7 +21,7 @@
                 </dt>
                   <dd>
                   <el-form-item label="合同状态:">
-                  	<span>有效</span>
+                  	<span>{{contract.states}}</span>
                     <span style="padding-left: 100px; color:#1D8CE0 ;">查看合同</span>                           
                       <span style="padding-left: 100px; color:#1D8CE0 ;">查看日志</span>         
                                 </el-form-item>
@@ -78,9 +78,12 @@
     <el-input  placeholder="选填,1~50个字" style="width: 140px;"></el-input>
   </el-form-item>
   </div>
+  <div class="fl">
+  	<span style="color:#1D8CE0;">删除</span>
+  </div>
 </el-form>
  </el-form-item> 
- <div><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>
+ <div @click="add_new"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>
  
                        
                                                                          <dt>
@@ -110,7 +113,7 @@
   </div>
 </el-form>
  </el-form-item>    
-           <div><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>  
+           <div @click="add_new"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>  
            <dt>甲方账户信息</dt>
               <el-form-item label="账号类型：">
                                     <el-select v-model="contract.value_accountType" placeholder="餐饮">
@@ -317,14 +320,21 @@
             {"label":"月", "value":1},
             {"label":"天", "value":2},
            
-        ]
+        ],
+        "states":"有效"
+        
                },
                 inputSize:"small",
                  radio_validity: 3,
                  radio_explain:2,
                  radio1:1
             }
-        }
+        },
+         methods:{
+         	add_new(){
+         		alert("aaa");
+         	}
+         }
     }
 </script>
 <style scoped>
