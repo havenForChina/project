@@ -75,7 +75,7 @@
             </dl>
             <dl class="detailed-box">
                 <dt>配送相关信息</dt>
-                <dd class="text" v-model="Distribution"><label>配送方</label><span>{{Distribution.name}}</span>
+                <dd class="text"><label>配送方</label><span>{{Distribution.name}}</span>
                 </dd>
                 <dd class="text"><label>需提前预定天数</label><span>
                         <el-input placeholder="请输入内容" v-model="Distribution.supportday" style="width:160px ">
