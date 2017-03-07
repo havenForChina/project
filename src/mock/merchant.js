@@ -259,15 +259,13 @@ module.exports = {
                 ]
             }
         ],
-        "Dishes":[
-            {
+        "Dishes":{
+            "single":{
                 "id":1,
-                "name":"单品",
-                "isOpen":true,
                 "item":[
                     {
                         "id":1,
-                        "name":"港式鸳鸯奶茶",
+                        "name":"单品1",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -282,7 +280,7 @@ module.exports = {
                     },
                     {
                         "id":2,
-                        "name":"港式奶茶",
+                        "name":"单品2",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -297,7 +295,7 @@ module.exports = {
                     },
                     {
                         "id":3,
-                        "name":"港式奶茶",
+                        "name":"单品3",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -312,14 +310,12 @@ module.exports = {
                     }
                 ]
             },
-            {
-                "id":2,
-                "name":"配料",
-                "isOpen":true,
+            "material":{
+                "id":"2",
                 "item":[
                     {
                         "id":1,
-                        "name":"港式鸳鸯奶茶",
+                        "name":"配料1",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -334,7 +330,7 @@ module.exports = {
                     },
                     {
                         "id":2,
-                        "name":"港式奶茶",
+                        "name":"配料2",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -349,7 +345,7 @@ module.exports = {
                     },
                     {
                         "id":3,
-                        "name":"港式奶茶",
+                        "name":"配料3",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -364,14 +360,12 @@ module.exports = {
                     }
                 ]
             },
-            {
+            "package":{
                 "id":3,
-                "name":"套餐",
-                "isOpen":true,
                 "item":[
                     {
                         "id":1,
-                        "name":"港式鸳鸯奶茶",
+                        "name":"套餐1",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -386,7 +380,7 @@ module.exports = {
                     },
                     {
                         "id":2,
-                        "name":"港式奶茶",
+                        "name":"套餐2",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -401,7 +395,7 @@ module.exports = {
                     },
                     {
                         "id":3,
-                        "name":"港式奶茶",
+                        "name":"套餐3",
                         "price":12,
                         "discount":8.5,
                         "stock":999,
@@ -416,7 +410,11 @@ module.exports = {
                     }
                 ]
             }
-        ]
-
+        },
+        "filterOptions":{
+            "single":"单品",
+            "material":"配料",
+            "package":"套餐"
+        }
     }
 }

@@ -96,12 +96,10 @@
                     <div class="select-bar fr">
                         <div class="filter-type">
                             <div class="filter-selected" @click="filterShow = !filterShow">
-                                单品
+                                {{data.filterOptions[filterValue]}}
                                 <i class="el-icon-caret-bottom fade" :class="filterShow && 'rotate-180'"></i></div>
-                            <ul class="filter-list" v-if="filterShow">
-                                <li>全部</li>
-                                <li>单品</li>
-                                <li>套餐</li>
+                            <ul class="filter-list" v-show="filterShow">
+                                <li v-for="(el,key) in data.filterOptions" @click="selectFilter(key)">{{el}}</li>
                             </ul>
                         </div>
                         <div class="filter-key">
@@ -109,6 +107,9 @@
                                 <el-button slot="append">搜索</el-button>
                             </el-input>
                         </div>
+                        <ul>
+                            <li v-for="(el,index) in filterData.item" :dataKey="index">{{el.name}}</li>
+                        </ul>
                     </div>
                 </el-tab-pane>
                 <el-tab-pane label="菜品库" name="second">
@@ -199,19 +200,29 @@
         },
         data() {
             return {
-                activeName: 'second',
+                activeName: 'first',
                 inputSize: "small",
                 isAlert:true,
                 isAlert1:true,
+                filterValue:'single',
                 filterShow:false
             };
         },
+        computed:{
+            filterData(){
+                return this.data.Dishes[this.filterValue]
+            }
+        },
         methods: {
             handleClick(tab, event) {
-                console.log(tab, event);
+                //console.log(tab, event);
             },
             handleIconClick (){
 
+            },
+            selectFilter(key){
+                this.filterValue = key
+                this.filterShow = false
             }
         },
         mounted(){

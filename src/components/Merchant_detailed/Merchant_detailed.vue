@@ -303,7 +303,7 @@
         },
         methods: {
             handleClick(tab, event) {
-                console.log(tab, event);
+                //console.log(tab, event);
             },
             openMap(){
                 console.log('打开地图插件')
