@@ -31,7 +31,7 @@
                 </dt>
                   <dd>
                   <el-form-item label="合同有效期:">
-                  	         <el-radio-group v-model="radio_validity">
+                  	         <el-radio-group v-model="contract_validity.radio_validity">
     <el-radio :label="1">3个月</el-radio>
     <el-radio :label="2">6个月</el-radio>
     <el-radio :label="3">12个月</el-radio>
@@ -50,32 +50,32 @@
                 </dt>
                   <dd>
                   <el-form-item label="名称:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符" v-model="a_information.name"></el-input>
                                 </el-form-item>
                                    <el-form-item label="地址:">
-                        <el-input :size="inputSize" placeholder="可输入1~200个字符"></el-input>
+                        <el-input :size="inputSize" placeholder="可输入1~200个字符" v-model="a_information.address"></el-input>
                                 </el-form-item>
                                </dd>  
                          <el-form-item label="联系人:">                    
    <el-form :inline="true"  class="demo-form-inline">
    	<div class="fl">
-  <el-form-item label="姓名">
-    <el-input  placeholder="必填,1~50个字符" style="width: 140px;"></el-input>
+  <el-form-item label="姓名" >
+    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" v-model="a_information.peoName"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
-  <el-form-item label="QQ/微信">
-     <el-input  placeholder="选填,1~20个字符"style="width: 140px;"></el-input>
+  <el-form-item label="QQ/微信" >
+     <el-input  placeholder="选填,1~20个字符"style="width: 140px;" v-model="a_information.qq"></el-input>
   </el-form-item >
   </div>
   <div class="fl">
   <el-form-item label="手机">
-    <el-input  placeholder="必填" style="width: 140px;"></el-input>
+    <el-input  placeholder="必填" style="width: 140px;" v-model="a_information.phone"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="邮箱">
-    <el-input  placeholder="选填,1~50个字" style="width: 140px;"></el-input>
+    <el-input  placeholder="选填,1~50个字" style="width: 140px;" v-model="a_information.email"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
@@ -93,22 +93,22 @@
    <el-form :inline="true"  class="demo-form-inline">
    	<div class="fl">
   <el-form-item label="姓名">
-    <el-input  placeholder="必填,1~50个字符" style="width: 140px;"></el-input>
+    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" v-model="b_information.peoName"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="QQ/微信">
-     <el-input  placeholder="选填,1~20个字符"style="width: 140px;"></el-input>
+     <el-input  placeholder="选填,1~20个字符"style="width: 140px;" v-model="b_information.qq"></el-input>
   </el-form-item >
   </div>
   <div class="fl">
   <el-form-item label="手机">
-    <el-input  placeholder="必填" style="width: 140px;"></el-input>
+    <el-input  placeholder="必填" style="width: 140px;" v-model="b_information.phone"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="邮箱">
-    <el-input  placeholder="选填,1~50个字" style="width: 140px;"></el-input>
+    <el-input  placeholder="选填,1~50个字" style="width: 140px;" v-model="b_information.email"></el-input>
   </el-form-item>
   </div>
 </el-form>
@@ -126,29 +126,29 @@
                                 </el-form-item>
                                 <dd> 
                                 	<el-form-item label="开户行省份:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~10个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~10个字符" v-model="a_account.province"></el-input>
                                 </el-form-item>
                                         	<el-form-item label="开户行城市:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~10个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~10个字符" v-model="a_account.city"></el-input>
                                 </el-form-item>
                                         	<el-form-item label="银行名称:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~20个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~20个字符" v-model="a_account.bank_name"></el-input>
                                 </el-form-item>
                                         	<el-form-item label="开户行:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符" v-model="a_account.open_bank"></el-input>
                   	 <p>如：中国工商银行中关村支行</p>
                                 </el-form-item>
                                 <el-form-item label="开户名:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符" v-model="a_account.open_name"></el-input>
                                 </el-form-item>
                                 <el-form-item label="账号:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符" v-model="a_account.account"></el-input>
                                 </el-form-item>
                                 <el-form-item label="结算联系人电话:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~20个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~20个字符" v-model="a_account.phone"></el-input>
                                 </el-form-item>
                                             <el-form-item label="结算联系人邮箱:"> 
-                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符"></el-input>
+                  	 <el-input :size="inputSize" placeholder="可输入1~50个字符" v-model="a_account.email"></el-input>
                                 </el-form-item>
                                 </dd>
                                 <dt>出餐方式</dt>
@@ -200,7 +200,7 @@
                                  </dd> 
                                  <div style="margin-left: 120px;">
                                  	   <el-radio-group v-model="radio1">
-    <el-radio :label="1">每笔订单流水总额的<el-input placeholder="5" style="width: 60px;"></el-input>%：按每笔成功成交订单的交易流水总额收取费用。</el-radio>
+    <el-radio :label="1">每笔订单流水总额的<el-input placeholder="5" style="width: 60px;" v-model="way_distribution.rate"></el-input>%：按每笔成功成交订单的交易流水总额收取费用。</el-radio>
     </el-radio-group>
                                
                                  </div>
@@ -225,7 +225,7 @@
                        <dd>
                        <div style="clear: both;">
                         <el-form-item label="保底抽佣:">
-                  	<span>当按菜品/流水/固定抽佣计算金额≤<el-input placeholder="5" style="width: 60px;"></el-input>元时，按0元收取保底抽佣</span>                         
+                  	<span>当按菜品/流水/固定抽佣计算金额≤<el-input placeholder="5" style="width: 60px;" v-model="way_distribution.money"></el-input>元时，按0元收取保底抽佣</span>                         
                                 </el-form-item> 
                                 </div>
                                 <span>输入框内容为0~10的整数</span>
@@ -236,13 +236,13 @@
                           <el-checkbox>基于甲乙双方的战略伙伴关系，甲方承诺不与任何其他外卖业务平台合作，仅与乙方在百度外卖平台开展合作。</el-checkbox>  
                           <div style="margin-left: -60px;" >
                            <el-form-item label="有效期:">
-                  	         <el-radio-group style=" float: left; padding-top: 10px;" >
+                  	         <el-radio-group style=" float: left; padding-top: 10px;" v-model="supply_agree.validity" >
     <el-radio :label="1">合同有效期内</el-radio>
     <el-radio :label="2">合同签订之日起</el-radio>
   </el-radio-group>
-  <el-input placeholder="5" style="width: 60px; float: left;"></el-input>
+  <el-input placeholder="5" style="width: 60px; float: left;" v-model="supply_agree.amount_month"></el-input>
                               <el-form-item style="float: left;">
-                                    <el-select v-model="supply_agree.value_validity" placeholder="月"  style="width: 80px;">
+                                    <el-select v-model="supply_agree.value_validity" placeholder="月"  style="width: 80px;" >
                                         <el-option
                                                 v-for="el in supply_agree.option_validity"
                                                 :label="el.label"
@@ -257,7 +257,7 @@
   type="textarea"
   :rows="2"
   placeholder="请输入内容"
-  style="width: 800px;">
+  style="width: 800px;" v-model="supply_agree.explain">
 </el-input>
                             </div> 
             </dl>
@@ -270,7 +270,7 @@
         data(){
             return {
             	 inputSize:"small",
-            	  radio_validity: 3,
+            	 
                  radio_explain:2,
                  radio1:1,
         "contract_template":{
@@ -289,13 +289,24 @@
         "contract_state":{
         	"states":"有效"
         },
-        "contract_validity":{	
+        "contract_validity":{
+        	 "radio_validity": 3,
         	"sign":"2017-02-06",
         "expire":"2018-02-06"
         },
         "a_information":{
+        	"name":"bian",
+        	"address":"爱康集团",
+        	"peoName":"aa",
+        	"qq":"1291270293",
+        	"phone":"15298802135",
+        	"email":"1291270293@qq.com"
         },
         "b_information":{
+        	"peoName":"aa",
+        	"qq":"1291270293",
+        	"phone":"15298802135",
+        	"email":"1291270293@qq.com"
         },
         "a_account":{
         	 "value_accountType":3,
@@ -304,7 +315,15 @@
             {"label":"对公", "value":2},
             {"label":"对私", "value":3},
             
-        ]
+        ],
+        "province":"江苏",
+        "city":"张家港",
+        "bank_name":"农商银行",
+        "open_bank":"中国工商银行中关村支行",
+        "open_name":"aa",
+        "account":"234df",
+        "phone":"1235679",
+        "email":"123@qq.com"
         },
         "way_meal":{
         	 "value_meal":2,
@@ -336,14 +355,19 @@
             {"label":"日结", "value":1},
             {"label":"周结", "value":2},
             {"label":"月结", "value":3},
-        ]
+        ],
+        "rate":5,
+        "money":"2000"
       },
       "supply_agree":{
       	  "value_validity":1,
         "option_validity":[
             {"label":"月", "value":1},
             {"label":"天", "value":2},     
-        ]
+        ],
+        "amount_month":5,
+        "explain":"请输入内容",
+        "validity":""
       }
 }
 },
