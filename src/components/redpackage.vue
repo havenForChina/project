@@ -5,14 +5,14 @@
       <ul class="app-input-list clearfix">
         <li>
           <el-form-item label="红包名称">
-            <el-input v-model="redpackageData.RedName" placeholder="红包名称" :size="inputSize"></el-input>
+            <el-input v-model="redpackageData.RedName" placeholder="红包名称" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
           <el-form-item label="红包类型">
-             <el-select v-model="redpackageData.redpackageStatus.value" placeholder="订单状态" :size="inputSize">
+             <el-select v-model="redpackageData.redpackageStatus.value" placeholder="订单状态" :size="inputSize" style="width: 160px">
               <el-option v-for="el in redpackageData.redpackageStatus.options"  :label="el.label" :value="el.value" ></el-option>
             </el-select>
           </el-form-item>
-          <span style="display: inline-block;margin-bottom: 22px">
+          <span style="display: inline-block;margin-bottom: 22px ">
             <span class="list-label">有效期</span>
             <el-date-picker
               :size="inputSize"
@@ -25,10 +25,10 @@
             </el-date-picker>
           </span>
           <el-form-item label="所属商家">
-            <el-input v-model="redpackageData.merchant" placeholder="所属商家" :size="inputSize"></el-input>
+            <el-input v-model="redpackageData.merchant" placeholder="所属商家" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
           <el-form-item label="创建人">
-            <el-input v-model="redpackageData.createPeople" placeholder="创建人" :size="inputSize"></el-input>
+            <el-input v-model="redpackageData.createPeople" placeholder="创建人" :size="inputSize" style="width: 160px"></el-input>
           </el-form-item>
         </li>      
       </ul>
