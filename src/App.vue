@@ -70,11 +70,13 @@
           leftBars.css('left',-lw)
                   .find('.draw-handler i').removeClass().addClass('el-icon-arrow-right').siblings('p').text('打开菜单')
           $('.app-main').css('margin-left',0)
+          $('.app-dropdown-box').css('padding-left',20)
           this.leftToggle = false
         }else {
           leftBars.css('left',0)
                   .find('.draw-handler i').removeClass().addClass('el-icon-arrow-left').siblings('p').text('收起菜单')
           $('.app-main').css('margin-left',lw)
+          $('.app-dropdown-box').css('padding-left',189)
           this.leftToggle = true
         }
       },
