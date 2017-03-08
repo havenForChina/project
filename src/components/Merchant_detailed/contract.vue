@@ -57,63 +57,70 @@
                                 </el-form-item>
                                </dd>  
                          <el-form-item label="联系人:">                    
-   <el-form :inline="true"  class="demo-form-inline">
+   <el-form :inline="true"  class="demo-form-inline" v-for="item in add1">
+   	<div>
    	<div class="fl">
   <el-form-item label="姓名" >
-    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" v-model="a_information.peoName"></el-input>
+    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" :value="item.name"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="QQ/微信" >
-     <el-input  placeholder="选填,1~20个字符"style="width: 140px;" v-model="a_information.qq"></el-input>
+     <el-input  placeholder="选填,1~20个字符"style="width: 140px;":value="item.qq" ></el-input>
   </el-form-item >
   </div>
   <div class="fl">
   <el-form-item label="手机">
-    <el-input  placeholder="必填" style="width: 140px;" v-model="a_information.phone"></el-input>
+    <el-input  placeholder="必填" style="width: 140px;" :value="item.phone"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="邮箱">
-    <el-input  placeholder="选填,1~50个字" style="width: 140px;" v-model="a_information.email"></el-input>
+    <el-input  placeholder="选填,1~50个字" style="width: 140px;" :value="item.email"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
-  	<span style="color:#1D8CE0;">删除</span>
+  	<span  @click="del1" style="color:#1D8CE0;">删除</span>
+  </div>
   </div>
 </el-form>
  </el-form-item> 
- <div @click="add_new"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>
+ <div @click="add_new1"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>
  
                        
                                                                          <dt>
                   乙方信息
                 </dt>  
                   <el-form-item label="联系人:">                    
-   <el-form :inline="true"  class="demo-form-inline">
+   <el-form :inline="true"  class="demo-form-inline" v-for="item in add2">
+   	<div>
    	<div class="fl">
   <el-form-item label="姓名">
-    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" v-model="b_information.peoName"></el-input>
+    <el-input  placeholder="必填,1~50个字符" style="width: 140px;" :value="item.name"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="QQ/微信">
-     <el-input  placeholder="选填,1~20个字符"style="width: 140px;" v-model="b_information.qq"></el-input>
+     <el-input  placeholder="选填,1~20个字符"style="width: 140px;" :value="item.qq"></el-input>
   </el-form-item >
   </div>
   <div class="fl">
   <el-form-item label="手机">
-    <el-input  placeholder="必填" style="width: 140px;" v-model="b_information.phone"></el-input>
+    <el-input  placeholder="必填" style="width: 140px;" :value="item.phone"></el-input>
   </el-form-item>
   </div>
   <div class="fl">
   <el-form-item label="邮箱">
-    <el-input  placeholder="选填,1~50个字" style="width: 140px;" v-model="b_information.email"></el-input>
+    <el-input  placeholder="选填,1~50个字" style="width: 140px;" :value="item.email"></el-input>
   </el-form-item>
+  </div>
+  <div class="fl">
+  	<span @click="del2"style="color:#1D8CE0;">删除</span>
+  </div>
   </div>
 </el-form>
  </el-form-item>    
-           <div @click="add_new"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>  
+           <div @click="add_new2"><span style="color:#1D8CE0 ;margin-left:120px;">+联系人</span></div>  
            <dt>甲方账户信息</dt>
               <el-form-item label="账号类型：">
                                     <el-select v-model="a_account.value_accountType" placeholder="餐饮">
@@ -269,8 +276,14 @@
         name: 'account',
         data(){
             return {
+            	add1:[
+            {"name":"mingzi", "qq":"12","phone":"111","email":"12"} 
+            	],
+            		add2:[
+            {"name":"mingzi", "qq":"12","phone":"111","email":"12"} 
+            	],
+            	
             	 inputSize:"small",
-            	 
                  radio_explain:2,
                  radio1:1,
         "contract_template":{
@@ -296,18 +309,8 @@
         },
         "a_information":{
         	"name":"bian",
-        	"address":"爱康集团",
-        	"peoName":"aa",
-        	"qq":"1291270293",
-        	"phone":"15298802135",
-        	"email":"1291270293@qq.com"
-        },
-        "b_information":{
-        	"peoName":"aa",
-        	"qq":"1291270293",
-        	"phone":"15298802135",
-        	"email":"1291270293@qq.com"
-        },
+        	"address":"爱康集团",       	
+        },       
         "a_account":{
         	 "value_accountType":3,
         "option_accountType":[
@@ -372,8 +375,25 @@
 }
 },
          methods:{
-         	add_new(){
-         		alert("aaa");
+         	add_new1(){
+         		if(this.add1.length<3){
+         		this.add1.push( {"name":"mingzi", "qq":"12","phone":"111","email":"12"})
+         		}
+         	},
+         	add_new2(){
+         		if(this.add2.length<3){
+            this.add2.push( {"name":"mingzi", "qq":"12","phone":"111","email":"12"})
+           }
+         	},
+         	del1(){
+         		if(this.add1.length>1){
+         			this.add1.splice("add1.length",1)	
+         		} 			
+         	},
+         	del2(){
+         		if(this.add2.length>1){
+         		this.add2.splice("add2.length",1)	
+         		}
          	}
          }
     }
