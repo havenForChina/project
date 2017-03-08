@@ -52,7 +52,7 @@
                         </el-breadcrumb>
                         <i class="app-dropdown-close el-icon-close" @click="pageShow = !pageShow"></i>
                     </div>
-                    <tmp is="list"></tmp>
+                    <tmp is="list" :data="key_link"></tmp>
                 </div>
             </div>
         </div>

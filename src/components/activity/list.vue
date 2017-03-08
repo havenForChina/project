@@ -111,8 +111,8 @@
           <el-col :span="6" :offset="15"><div class="grid-content">
           <div class="block">
               <el-pagination
-                      <!--@size-change="list.handleSizeChange"-->
-                      <!--@current-change="list.handleCurrentChange"-->
+                      @size-change="list.handleSizeChange"
+                      @current-change="list.handleCurrentChange"
                       :current-page="list.currentPage2"
                       :page-sizes="[10, 20, 30, 40]"
                       :page-size="100"
@@ -129,6 +129,9 @@
 <script>
     export default {
         name: 'list',
+        props:{
+            data:Object
+        },
         data(){
             return{
                 list:{
