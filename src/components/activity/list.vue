@@ -105,6 +105,11 @@
           <el-table-column
                   prop="operation"
                   label="操作">
+              <template scope="scope">
+                  <el-button type="primary" size="small">编辑</el-button>
+                  <el-button type="primary" size="small" @click="coil">下线</el-button>
+                  <el-button @click="handleClick" type="primary" size="small">查看日志</el-button>
+              </template>
           </el-table-column>
       </el-table>
       <el-row>
