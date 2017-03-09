@@ -90,7 +90,7 @@ export default {
 	background-color: #fff;
     border: #dde3ea solid 1px;
     border-radius: 2px;
-    width: 1100px;
+    width: 1080px;
     margin: 20px 0 15px;
     display: -webkit-flex;
     display: flex;
